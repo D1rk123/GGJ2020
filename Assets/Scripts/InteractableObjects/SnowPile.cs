@@ -11,12 +11,6 @@ public class SnowPile : MonoBehaviour, IInteractable
 		_snowPickedUpParticles.Stop();
 	}
 
-	void Update ()
-	{
-		if (Input.GetKeyDown(KeyCode.A))
-			Interact();
-	}
-
 	public void Interact ()
 	{
 		_snowPickedUpParticles.Stop();

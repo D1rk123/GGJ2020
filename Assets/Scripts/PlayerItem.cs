@@ -6,12 +6,6 @@ public class PlayerItem : MonoBehaviour
 {
     List<Collider> m_pickupObjects = new List<Collider>();
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Pickup"))
@@ -28,8 +22,7 @@ public class PlayerItem : MonoBehaviour
             m_pickupObjects.Remove(other);
         }
     }
-
-    // Update is called once per frame
+	
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.F) && m_pickupObjects.Count > 0)
