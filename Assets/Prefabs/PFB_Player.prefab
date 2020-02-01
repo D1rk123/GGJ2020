@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6615480794456329213}
   - component: {fileID: 6615480794456329215}
   m_Layer: 8
-  m_Name: Player
+  m_Name: PFB_Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -123,6 +123,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af357c65c82c37b46a928f2f1b46fac5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_playerIndex:
+    index: 0
+  m_movementSpeed: 5
+  m_acceleration: 20
+  m_deceleration: 40
+  m_stopSpeed: 0.5
+  m_jumpSpeed: 10
+  m_collisionMask:
+    serializedVersion: 2
+    m_Bits: 1
 --- !u!114 &6615480794456329215
 MonoBehaviour:
   m_ObjectHideFlags: 0

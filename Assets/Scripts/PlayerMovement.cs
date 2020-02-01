@@ -1,117 +1,94 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using XInputDotNetExtended;
 
 public class PlayerMovement : MonoBehaviour
 {
-    //private float fallingVelocity;
-    private Rigidbody m_rb;
+    public PlayerIndex m_playerIndex;
+    public float m_movementSpeed = 5;
+    public float m_acceleration = 20;
+    public float m_deceleration = 40;
+    public float m_stopSpeed = 0.5f;
+    public float m_jumpSpeed = 10.0f;
+    public LayerMask m_collisionMask;
+
+    private Rigidbody m_rigidbody;
+    private Collider m_collider;
+    private PlayerInputs m_playerInputs;
+    private float m_desiredVelocity = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        m_rb = GetComponent<Rigidbody>();
-        //fallingVelocity = 0;
-        //m_Collider = GetComponent<Collider>();
+        m_rigidbody = GetComponent<Rigidbody>();
+        m_collider = GetComponent<Collider>();
+        m_playerInputs = GetComponent<PlayerInputs>();
+    }
+
+    private void FixedUpdate()
+    {
+        Vector3 v = m_rigidbody.velocity;
+
+        if (m_desiredVelocity < 0)
+        {
+            if (v.x < m_desiredVelocity)
+            {
+                v.x += m_deceleration * Time.fixedDeltaTime;
+                v.x = Mathf.Min(v.x, m_desiredVelocity);
+            }
+            if (v.x > m_desiredVelocity)
+            {
+                v.x -= m_acceleration * Time.fixedDeltaTime;
+                v.x = Mathf.Max(v.x, m_desiredVelocity);
+            }
+        }
+        if (m_desiredVelocity > 0)
+        {
+            if (v.x < m_desiredVelocity)
+            {
+                v.x += m_acceleration * Time.fixedDeltaTime;
+                v.x = Mathf.Min(v.x, m_desiredVelocity);
+            }
+            if (v.x > m_desiredVelocity)
+            {
+                v.x -= m_deceleration * Time.fixedDeltaTime;
+                v.x = Mathf.Max(v.x, m_desiredVelocity);
+            }
+        }
+        if (m_desiredVelocity == 0)
+        {
+            if (v.x < 0)
+            {
+                v.x += m_deceleration * Time.fixedDeltaTime;
+                v.x = Mathf.Min(0, v.x);
+            }
+            if (v.x > 0)
+            {
+                v.x -= m_deceleration * Time.fixedDeltaTime;
+                v.x = Mathf.Max(0, v.x);
+            }
+            if (Mathf.Abs(v.x) < m_stopSpeed)
+            {
+                v.x = 0;
+            }
+        }
+
+        m_rigidbody.velocity = v;
     }
 
     private void Update()
     {
-        const int playerMask = 1 << 7;
-        const int collisionMask = Physics.DefaultRaycastLayers & ~playerMask;
+        m_desiredVelocity = m_playerInputs.MovementInput * m_movementSpeed;
 
-        Vector3 v = m_rb.velocity;
-        if (Input.GetKey(KeyCode.D))
-        {
-            v.x = 3;
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            v.x = -3;
-        }
-        if (!Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A))
-        {
-            v.x = 0;
-        }
+        Vector3 extents = m_collider.bounds.extents;
 
-        if (Input.GetKeyDown(KeyCode.W) &&
-            Physics.Raycast(transform.position, Vector3.down, 0.501f, collisionMask))
+        if (m_playerInputs.JumpInputDown &&
+            Physics.OverlapBox(m_collider.bounds.center + Vector3.down * 0.02f, m_collider.bounds.extents - new Vector3(0.01f, 0.01f, 0.01f), transform.rotation, m_collisionMask.value).Length > 0)
         {
-            v.y += 10;
+            Vector3 v = m_rigidbody.velocity;
+            v.y += m_jumpSpeed;
+            m_rigidbody.velocity = v;
         }
-        m_rb.velocity = v;
     }
-
-    /*
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        //const int playerMask = 1 << 8;
-        const int collisionMask = Physics.DefaultRaycastLayers;// & ~playerMask;
-        const float movementSpeed = 3;
-        const float jumpSpeed = 15f;
-        const float gravitationalAcceleration = 20f;
-        const float terminalVelocity = 30f;
-
-        Vector3 posDelta = Vector3.zero;
-
-        if (Input.GetKey(KeyCode.D))
-        {
-            posDelta += Vector3.right * movementSpeed * Time.fixedDeltaTime;
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            posDelta += Vector3.left * movementSpeed * Time.fixedDeltaTime;
-        }
-        if (Input.GetKey(KeyCode.W))
-        {
-            posDelta += Vector3.up * movementSpeed * Time.fixedDeltaTime;
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            posDelta += Vector3.down * movementSpeed * Time.fixedDeltaTime;
-        }
-        if (onSurface && Input.GetKey(KeyCode.W))
-        {
-            fallingVelocity = jumpSpeed;
-        }
-
-        fallingVelocity -= gravitationalAcceleration * Time.fixedDeltaTime;
-        fallingVelocity = Mathf.Clamp(fallingVelocity, -terminalVelocity, terminalVelocity);
-        posDelta.y += fallingVelocity * Time.fixedDeltaTime;
-
-        RaycastHit hitInfo;
-        if (posDelta.magnitude > 0.01 &&
-            Physics.BoxCast(
-                m_Collider.bounds.center,
-                m_Collider.bounds.extents,
-                posDelta.normalized,
-                out hitInfo,
-                transform.rotation,
-                posDelta.magnitude,
-                collisionMask
-            )
-        )
-        {
-            //Vector3 partialPosDelta = posDelta.normalized * hitInfo.distance;
-            //posDelta -= partialPosDelta;
-            fallingVelocity -= fallingVelocity * Vector3.Dot(hitInfo.normal, posDelta); ;
-            posDelta -= hitInfo.normal * Vector3.Dot(hitInfo.normal, posDelta);
-            transform.position += posDelta;
-        }
-        else
-        {
-            transform.position += posDelta;
-        }
-
-        if (Physics.Raycast(transform.position, Vector3.down, 0.7f, collisionMask))
-        {
-            fallingVelocity = 0;
-            onSurface = true;
-        }
-        else
-        {
-            onSurface = false;
-        }
-    }//*/
 }

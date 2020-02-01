@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1018,6 +1018,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6615480794456329209, guid: e56c25fac40c3f34e95eeadd850b94c0,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 8a4c9a0f3c14b134fbaa89fba22d07e0,
+        type: 2}
     - target: {fileID: 6615480794456329210, guid: e56c25fac40c3f34e95eeadd850b94c0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1072,6 +1078,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6615480794456329213, guid: e56c25fac40c3f34e95eeadd850b94c0,
+        type: 3}
+      propertyPath: m_collisionMask.m_Bits
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e56c25fac40c3f34e95eeadd850b94c0, type: 3}
