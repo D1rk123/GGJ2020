@@ -14,13 +14,13 @@ public class Seagull : MonoBehaviour
 	bool _isLookingLeft = false;
 	float _xPosition;
 	float _yPosition;
-
-	//INCOMING
-	float _incomingSpeed = 1.3f;
+	
+	[Header ("Incoming Settings")]
+	[SerializeField] float _incomingSpeed = 2.5f;
 
 	private void Awake ()
 	{
-		Init(Vector3.left * 30, Vector3.left * 11, false);
+		Init(new Vector3(-40, -10, 0), new Vector3(-24, -10, 0), false);
 	}
 
 	public void Init (Vector3 spawnPosition, Vector3 fightingPosition, bool isLookingLeft)
