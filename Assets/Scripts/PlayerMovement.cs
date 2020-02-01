@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using XInputDotNetExtended;
 
@@ -94,11 +95,15 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 extents = m_collider.bounds.extents;
 
+        Collider[] collisions = Physics.OverlapBox(
+            m_collider.bounds.center + Vector3.down * 0.02f, m_collider.bounds.extents - new Vector3(0.01f, 0.01f, 0.01f), transform.rotation, m_collisionMask.value
+            );
+
         if (m_playerInputs.JumpInputDown &&
-            Physics.OverlapBox(m_collider.bounds.center + Vector3.down * 0.02f, m_collider.bounds.extents - new Vector3(0.01f, 0.01f, 0.01f), transform.rotation, m_collisionMask.value).Length > 0)
+            collisions.Any(c => !c.isTrigger))
         {
             Vector3 v = m_rigidbody.velocity;
-            v.y += m_jumpSpeed;
+            v.y = m_jumpSpeed;
             m_rigidbody.velocity = v;
         }
     }
