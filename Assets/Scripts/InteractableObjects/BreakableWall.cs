@@ -2,20 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BreakableWall : MonoBehaviour, IInteractable, IBreakable
+public class BreakableWall : MonoBehaviour, ISnowDeposit, IBreakable
 {
 	public GameObject fullWall;
 	public GameObject brokenWall;
 
 	bool _isBroken = false;
 
-	public void Interact ()
+	public bool DepositSnow ()
 	{
 		if (_isBroken) {
 			_isBroken = false;
 			fullWall.SetActive(true);
 			brokenWall.SetActive(false);
+			return true;
 		}
+		return false;
 	}
 
 	public void Break ()

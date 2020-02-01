@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Pickup
   - Geyser
+  - Interactable
   layers:
   - Default
   - TransparentFX
