@@ -1,8 +1,8 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemPickup : MonoBehaviour
+public class PlayerItem : MonoBehaviour
 {
     List<Collider> m_pickupObjects = new List<Collider>();
 

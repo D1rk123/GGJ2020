@@ -1,8 +1,8 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveCube : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     //private float fallingVelocity;
     private Rigidbody m_rb;
