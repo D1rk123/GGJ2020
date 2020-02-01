@@ -1,0 +1,3 @@
+
+View the XInputEX repository at: https://github.com/MikouZonata/XInputEX
+Up-to-date documentation on XInputDotNetPure at: https://github.com/speps/XInputDotNet
