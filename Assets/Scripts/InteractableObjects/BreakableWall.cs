@@ -12,12 +12,17 @@ public class BreakableWall : IInteractable, IBreakable
 	public void Interact ()
 	{
 		if (_isBroken) {
-
+			_isBroken = false;
+			fullWall.SetActive(true);
+			brokenWall.SetActive(false);
 		}
 	}
 
 	public void Break ()
 	{
-
+		if (!_isBroken) {
+			fullWall.SetActive(false);
+			brokenWall.SetActive(true);
+		}
 	}
 }
