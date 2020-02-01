@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BreakableWall : IInteractable, IBreakable
+public class BreakableWall : MonoBehaviour, IInteractable, IBreakable
 {
 	public GameObject fullWall;
 	public GameObject brokenWall;
