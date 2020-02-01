@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Pickup
+  - Geyser
   layers:
   - Default
   - TransparentFX

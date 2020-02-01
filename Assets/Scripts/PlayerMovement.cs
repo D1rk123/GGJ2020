@@ -11,11 +11,14 @@ public class PlayerMovement : MonoBehaviour
     public float m_deceleration = 40;
     public float m_stopSpeed = 0.5f;
     public float m_jumpSpeed = 10.0f;
+    public float m_geyserAcceleration = 20.0f;
+    public float m_geyserMaxSpeed = 10;
     public LayerMask m_collisionMask;
 
     private Rigidbody m_rigidbody;
     private Collider m_collider;
     private PlayerInputs m_playerInputs;
+    private List<Collider> m_geysers = new List<Collider>();
     private float m_desiredVelocity = 0;
 
     // Start is called before the first frame update
@@ -75,6 +78,14 @@ public class PlayerMovement : MonoBehaviour
         }
 
         m_rigidbody.velocity = v;
+
+        if(m_geysers.Count > 0)
+        {
+            m_rigidbody.AddForce(new Vector3(0, m_geyserAcceleration, 0), ForceMode.Acceleration);
+            v = m_rigidbody.velocity;
+            v.y = Mathf.Min(m_geyserMaxSpeed, v.y);
+            m_rigidbody.velocity = v;
+        }
     }
 
     private void Update()
@@ -89,6 +100,22 @@ public class PlayerMovement : MonoBehaviour
             Vector3 v = m_rigidbody.velocity;
             v.y += m_jumpSpeed;
             m_rigidbody.velocity = v;
+        }
+    }
+
+    private void OnTriggerEnter(Collider geyser)
+    {
+        if(geyser.CompareTag("Geyser"))
+        {
+            m_geysers.Add(geyser);
+        }
+    }
+
+    private void OnTriggerExit(Collider geyser)
+    {
+        if (geyser.CompareTag("Geyser"))
+        {
+            m_geysers.Remove(geyser);
         }
     }
 }
