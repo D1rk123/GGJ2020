@@ -35,7 +35,6 @@ public class ItemPickup : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F) && m_pickupObjects.Count > 0)
         {
             m_pickupObjects[0].transform.SetParent(gameObject.transform);
-            //m_pickupObjects[0].transform.position.y = gameObject.transform.position.y + 0.2;
             Debug.Log("Holding object");
         }
 
