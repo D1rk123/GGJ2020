@@ -5,26 +5,31 @@ using UnityEngine.SceneManagement;
 
 public class LossManager : MonoBehaviour
 {
-	public GameObject[] breakableWalls;
-	public GameObject[] playerCharacters;
+	public GameObject[] breakableWallObjects;
+	public GameObject[] playerObjects;
 
 	IBreakable[] _breakableWalls;
 	IBreakable[] _playerCharacters;
 
 	private void Awake ()
 	{
-		_breakableWalls = new IBreakable[breakableWalls.Length];
-		_playerCharacters = new IBreakable[playerCharacters.Length];
+		_breakableWalls = new IBreakable[breakableWallObjects.Length];
+		_playerCharacters = new IBreakable[playerObjects.Length];
 
-		for (int i = 0; i < breakableWalls.Length; i++) {
-			_breakableWalls[i] = breakableWalls[i].GetComponent<IBreakable>();
-			_playerCharacters[i] = playerCharacters[i].GetComponent<IBreakable>();
+		for (int i = 0; i < breakableWallObjects.Length; i++) {
+			_breakableWalls[i] = breakableWallObjects[i].GetComponent<IBreakable>();
+			_playerCharacters[i] = playerObjects[i].GetComponent<IBreakable>();
 		}
 	}
 
 	private void Update ()
 	{
-		
+		bool aPlayerLives = false;
+		foreach (IBreakable player in _playerCharacters) {
+			if (!player.GetIsBroken()) {
+				aPlayerLives = true;
+			}
+		}
 	}
 
 	void RestartGame ()
