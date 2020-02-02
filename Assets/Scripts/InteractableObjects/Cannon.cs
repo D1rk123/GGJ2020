@@ -15,7 +15,8 @@ public class Cannon : MonoBehaviour, ISnowDeposit
         CameraShake shaker = mainCamera.GetComponent<CameraShake>();
         StartCoroutine(shaker.Shake(0.2f, 0.15f, true));
 
-        GameObject CannonBallObject = transform.GetChild(0).gameObject;
+        GameObject CannonBallObjectPrototype = transform.GetChild(0).gameObject;
+        GameObject CannonBallObject = GameObject.Instantiate(CannonBallObjectPrototype, CannonBallObjectPrototype.transform.parent);
         CannonBallObject.SetActive(true);
         CannonBall cannonBall = CannonBallObject.GetComponent<CannonBall>();
         cannonBall.Shoot();

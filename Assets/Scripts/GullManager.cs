@@ -16,6 +16,7 @@ public class GullManager : MonoBehaviour
     public float m_secondGullDelay = 120;
     public float m_respawnAverage = 20;
     public float m_respawnRangeFactor = 5;
+    public int m_gullHealth = 3;
 
     private bool m_leftGullAlive = false;
     private bool m_rightGullAlive = false;
@@ -43,12 +44,12 @@ public class GullManager : MonoBehaviour
         if(side == GullSide.Left)
         {
             m_leftGullAlive = true;
-            m_leftSeagull.Init(new Vector3(-40, -10, 0), new Vector3(-24, -10, 0), false);
+            m_leftSeagull.Init(new Vector3(-40, -10, 0), new Vector3(-24, -10, 0), false, m_gullHealth);
         }
         else
         {
             m_rightGullAlive = true;
-            m_rightSeagull.Init(new Vector3(40, -10, 0), new Vector3(24, -10, 0), true);
+            m_rightSeagull.Init(new Vector3(40, -10, 0), new Vector3(24, -10, 0), true, m_gullHealth);
         }
 
         Debug.Log("Spawned gull on the " + GullSideToString(side) + " side");
