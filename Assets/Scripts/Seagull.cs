@@ -6,6 +6,7 @@ using UnityEngine;
 public class Seagull : MonoBehaviour
 {
 	[SerializeField] Transform headTransform;
+	Vector3 _headBaseLocalPosition;
 	[SerializeField] Transform beakTip;
 
 	enum States { Incoming, Fighting, Dying };
@@ -16,15 +17,25 @@ public class Seagull : MonoBehaviour
 	float _xPosition;
 	float _yPosition;
 	private int _health = 0;
-	
-	[Header ("Incoming Settings")]
+
+	[Header("Incoming Settings")]
 	[SerializeField] float _incomingSpeed = 2.5f;
 
-	public delegate void RemovalEventHandler(bool isLookingLeft);
+	[Header("Fighting Settings")]
+	[SerializeField] float _secondsPerPeck = 1.2f;
+	[SerializeField] float _peckSpeed = 30;
+	[SerializeField] float _hitBoxHalfExtends = 2;
 
-	public event RemovalEventHandler IsRemoved;
+	GameObject[] _breakableObjects;
+	GameObject[] _playerCharacters;
+	float _fightingTimer = 0;
+	bool _isPecking = false;
+	bool _peckMovingIn = true;
 
+	[Header("Dying Settings")]
 	public float _dyingDuration = 3;
+	public delegate void RemovalEventHandler (bool isLookingLeft);
+	public event RemovalEventHandler IsRemoved;
 
 	private void Awake ()
 	{
@@ -34,18 +45,23 @@ public class Seagull : MonoBehaviour
 	public void Init (Vector3 spawnPosition, Vector3 fightingPosition, bool isLookingLeft, int startingHealth, GameObject[] breakableObjects, GameObject[] playerCharacters)
 	{
 		_state = States.Incoming;
+		_headBaseLocalPosition = headTransform.localPosition;
 		_fightingPosition = fightingPosition;
-		transform.localScale = new Vector3(isLookingLeft ? -1 : 1 , 1, 1);
+		transform.localScale = new Vector3(isLookingLeft ? -1 : 1, 1, 1);
 		transform.position = spawnPosition;
 		_xPosition = spawnPosition.x;
 		_yPosition = spawnPosition.y;
 		_health = startingHealth;
+		_breakableObjects = breakableObjects;
+		_playerCharacters = playerCharacters;
 		Debug.Log("startingHealth: " + startingHealth);
 		gameObject.SetActive(true);
 	}
 
 	private void Update ()
 	{
+		Debug.Log(_state);
+
 		switch (_state) {
 			case States.Incoming:
 				Incoming();
@@ -72,10 +88,71 @@ public class Seagull : MonoBehaviour
 
 	void Fighting ()
 	{
+		if (!_isPecking) {
+			_fightingTimer += Time.deltaTime;
+			if (_fightingTimer >= _secondsPerPeck) {
+				_isPecking = true;
+				_fightingTimer = 0;
+				StartCoroutine(PerformPeck());
+				Debug.Log("performing peck");
+			}
+		} else {
 
+		}
 	}
 
-	private IEnumerator Dying()
+	IEnumerator PerformPeck ()
+	{
+		//Find random target
+		GameObject target;
+		int maxRoll = _breakableObjects.Length + _playerCharacters.Length;
+		int roll = UnityEngine.Random.Range(0, maxRoll);
+		if (roll < _breakableObjects.Length) {
+			target = _breakableObjects[roll];
+		} else {
+			target = _playerCharacters[roll - _breakableObjects.Length];
+		}
+
+		Debug.Log("target: " + target.name);
+
+		Vector3 oldBeakPosition;
+		Vector3 newBeakPosition;
+
+		//Move beak in
+		while (true) {
+			oldBeakPosition = beakTip.position;
+			newBeakPosition = Vector3.MoveTowards(beakTip.position, target.transform.position, _peckSpeed * Time.deltaTime);
+			headTransform.Translate(newBeakPosition - oldBeakPosition);
+			Debug.Log(newBeakPosition - oldBeakPosition);
+			Debug.Log(beakTip.position);
+
+			if (Vector3.Distance(beakTip.position, target.transform.position) < 0.05f) {
+				Debug.Log(Vector3.Distance(beakTip.position, target.transform.position));
+				break;
+			}
+
+			Debug.Log("moving in");
+			yield return null;
+		}
+
+		//Moving back
+		while (true) {
+			oldBeakPosition = beakTip.position;
+			newBeakPosition = Vector3.MoveTowards(beakTip.position, headTransform.position - _headBaseLocalPosition, _peckSpeed * Time.deltaTime);
+			headTransform.Translate(newBeakPosition - oldBeakPosition);
+
+			if (Vector3.Distance(beakTip.position, headTransform.position - _headBaseLocalPosition) < 0.05f) {
+				break;
+			}
+
+			Debug.Log("moving out");
+			yield return null;
+		}
+
+		_isPecking = false;
+	}
+
+	private IEnumerator Dying ()
 	{
 		Debug.Log("Started dying");
 		Vector3 dyingStartPosition = transform.position;
@@ -84,8 +161,7 @@ public class Seagull : MonoBehaviour
 		float intensity = 0.5f;
 		float fallDistance = 30;
 
-		while (elapsed < _dyingDuration)
-		{
+		while (elapsed < _dyingDuration) {
 			Vector3 shake = new Vector3(
 				UnityEngine.Random.Range(-intensity, intensity),
 				UnityEngine.Random.Range(-intensity, intensity),
@@ -103,18 +179,18 @@ public class Seagull : MonoBehaviour
 		TriggerRemovalEvent();
 	}
 
-	public void ReceiveDamage(int damage)
+	public void ReceiveDamage (int damage)
 	{
 		Debug.Log("Health before: " + _health);
 		_health -= damage;
 		Debug.Log("Health after: " + _health);
-		if (_health <= 0)
-		{
+		if (_health <= 0) {
+			StopCoroutine(PerformPeck());
 			StartCoroutine(Dying());
 		}
 	}
 
-	protected virtual void TriggerRemovalEvent()
+	protected virtual void TriggerRemovalEvent ()
 	{
 		IsRemoved?.Invoke(_isLookingLeft);
 	}
