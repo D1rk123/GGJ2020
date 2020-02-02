@@ -47,7 +47,12 @@ public class Seagull : MonoBehaviour
 		_state = States.Incoming;
 		_headBaseLocalPosition = headTransform.localPosition;
 		_fightingPosition = fightingPosition;
-		transform.localScale = new Vector3(isLookingLeft ? -1 : 1, 1, 1);
+		Vector3 localScale = transform.localScale;
+		if(isLookingLeft)
+		{
+			localScale.x = -localScale.x;
+		}
+		transform.localScale = localScale;
 		transform.position = spawnPosition;
 		_xPosition = spawnPosition.x;
 		_yPosition = spawnPosition.y;
