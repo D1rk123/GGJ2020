@@ -88,7 +88,7 @@ Transform:
   m_GameObject: {fileID: 1197085834690541668}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 23.2, y: -6.27, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.26019582, y: 0.26019582, z: 0.26019582}
   m_Children:
   - {fileID: 1197085834518182123}
   - {fileID: 1005891799904649292}
@@ -110,6 +110,10 @@ MonoBehaviour:
   headTransform: {fileID: 7378452494947186608}
   beakTip: {fileID: 1197085833251461588}
   _incomingSpeed: 2.5
+  _secondsPerPeck: 1.2
+  _peckSpeed: 38
+  _hitBoxHalfExtends: 2
+  _dyingDuration: 3
 --- !u!114 &1197085834690541675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,7 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9ac8d30c6a0d9642a11e5be4c440740, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Root: {fileID: 7378452494947186608}
+  m_Root: {fileID: 4217538671735237020}
   m_UpdateRate: 60
   m_UpdateMode: 0
   m_Damping: 0.084
@@ -313,6 +317,12 @@ Transform:
 --- !u!4 &7378452494947186608 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -650382798008282385, guid: cf0e71f42e1146e4288243d7d9c0513e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1197085833339528543}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4217538671735237020 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -6189262920290235197, guid: cf0e71f42e1146e4288243d7d9c0513e,
     type: 3}
   m_PrefabInstance: {fileID: 1197085833339528543}
   m_PrefabAsset: {fileID: 0}
