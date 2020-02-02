@@ -4,17 +4,16 @@ using UnityEngine;
 
 public class BreakableWall : MonoBehaviour, ISnowDeposit, IBreakable
 {
-	public GameObject fullWall;
+	public GameObject fixedWall;
 	public GameObject brokenWall;
+	public ParticleSystem breakParticles;
 
 	bool _isBroken = false;
 
 	public bool DepositSnow ()
 	{
 		if (_isBroken) {
-			_isBroken = false;
-			fullWall.SetActive(true);
-			brokenWall.SetActive(false);
+			Repair();
 			return true;
 		}
 		return false;
@@ -24,8 +23,9 @@ public class BreakableWall : MonoBehaviour, ISnowDeposit, IBreakable
 	{
 		if (!_isBroken) {
 			_isBroken = true;
-			fullWall.SetActive(false);
+			fixedWall.SetActive(false);
 			brokenWall.SetActive(true);
+			breakParticles.Play();
 		}
 	}
 
@@ -33,7 +33,7 @@ public class BreakableWall : MonoBehaviour, ISnowDeposit, IBreakable
 	{
 		if (_isBroken) {
 			_isBroken = false;
-			fullWall.SetActive(true);
+			fixedWall.SetActive(true);
 			brokenWall.SetActive(false);
 		}
 	}
