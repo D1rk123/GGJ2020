@@ -3563,12 +3563,12 @@ PrefabInstance:
     - target: {fileID: -2387289216509055665, guid: b71eae8f0555ab14ea37649f6fe45a01,
         type: 3}
       propertyPath: m_firstGullDelay
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -2387289216509055665, guid: b71eae8f0555ab14ea37649f6fe45a01,
         type: 3}
       propertyPath: m_secondGullDelay
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: -2387289216509055665, guid: b71eae8f0555ab14ea37649f6fe45a01,
         type: 3}

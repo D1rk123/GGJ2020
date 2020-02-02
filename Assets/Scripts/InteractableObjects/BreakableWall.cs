@@ -13,9 +13,7 @@ public class BreakableWall : MonoBehaviour, ISnowDeposit, IBreakable
 	public bool DepositSnow ()
 	{
 		if (_isBroken) {
-			_isBroken = false;
-			fullWall.SetActive(true);
-			brokenWall.SetActive(false);
+			Repair();
 			return true;
 		}
 		return false;
