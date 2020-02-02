@@ -137,6 +137,7 @@ public class Seagull : MonoBehaviour
 		Vector3 newBeakPosition;
 
 		//Move beak in
+		AudioManager.PlayAudioClip(AudioManager.AudioClips.SeagullAttack);
 		while (true) {
 			oldBeakPosition = beakTip.position;
 			newBeakPosition = Vector3.MoveTowards(beakTip.position, target.transform.position, _peckSpeed * Time.deltaTime);
@@ -154,9 +155,7 @@ public class Seagull : MonoBehaviour
 		foreach (Collider col in hitColliders) {
 			IBreakable breakable = col.GetComponent<IBreakable>();
 			breakable?.Break();
-			if (breakable != null) {
-				Debug.Log("Broke " + col.name);
-			}
+			AudioManager.PlayAudioClip(AudioManager.AudioClips.BreakingIce);
 		}
 
 		//Moving beak back

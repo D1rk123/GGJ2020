@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -40,6 +40,8 @@ public class CannonBall : MonoBehaviour
             m_onImpactParticles.transform.position = transform.position+new Vector3(0,0,-1);
             m_onImpactParticles.Stop();
             m_onImpactParticles.Play();
+
+			AudioManager.PlayAudioClip(AudioManager.AudioClips.CannonImpact);
 
             Seagull gull = collisions[0].transform.parent.gameObject.GetComponent<Seagull>();
             gull.ReceiveDamage(1);

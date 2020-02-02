@@ -29,7 +29,7 @@ public class AudioManager : MonoBehaviour
 	string landPath = "event:/SFX/Character/Land";
 	static EventInstance landInstance;
 
-	string interactPath = "event:/SFX/Character/Interact";
+	string interactSnowPath = "event:/SFX/Character/Interact";
 	static EventInstance interactSnowInstance;
 
 	string cannonShotPath = "event:/SFX/Cannon/Cannon";
@@ -50,8 +50,13 @@ public class AudioManager : MonoBehaviour
 		ambienceInstance = RuntimeManager.CreateInstance(ambiencePath);
 		geyserInstance = RuntimeManager.CreateInstance(geyserPath);
 		breakingIceInstance = RuntimeManager.CreateInstance(breakingIcePath);
-		//jumpInstance = RuntimeManager.CreateInstance(jumpPath);
-		//landInstance = RuntimeManager.CreateInstance(landPath);
+		jumpInstance = RuntimeManager.CreateInstance(jumpPath);
+		landInstance = RuntimeManager.CreateInstance(landPath);
+		interactSnowInstance = RuntimeManager.CreateInstance(interactSnowPath);
+		cannonShotInstance = RuntimeManager.CreateInstance(cannonShotPath);
+		cannonImpactInstance = RuntimeManager.CreateInstance(cannonImpactPath);
+		seagullAttackInstance = RuntimeManager.CreateInstance(gullScreamPath);
+		deathExplosionInstance = RuntimeManager.CreateInstance(deathExplosionPath);
 
 		backgroundMusicInstance.start();
 		ambienceInstance.start();
