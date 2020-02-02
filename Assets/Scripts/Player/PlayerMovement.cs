@@ -46,6 +46,12 @@ public class PlayerMovement : MonoBehaviour
                 v.x -= m_acceleration * Time.fixedDeltaTime;
                 v.x = Mathf.Max(v.x, m_desiredVelocity);
             }
+            if(transform.localScale.x>0)
+            {
+                Vector3 localScale = transform.localScale;
+                localScale.x = -localScale.x;
+                transform.localScale = localScale;
+            }
         }
         if (m_desiredVelocity > 0)
         {
@@ -58,6 +64,12 @@ public class PlayerMovement : MonoBehaviour
             {
                 v.x -= m_deceleration * Time.fixedDeltaTime;
                 v.x = Mathf.Max(v.x, m_desiredVelocity);
+            }
+            if (transform.localScale.x < 0)
+            {
+                Vector3 localScale = transform.localScale;
+                localScale.x = -localScale.x;
+                transform.localScale = localScale;
             }
         }
         if (m_desiredVelocity == 0)

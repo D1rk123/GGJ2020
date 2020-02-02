@@ -448,6 +448,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 1505531311383702927, guid: 44c8609d4549dd848a0528caf84f32ee,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44c8609d4549dd848a0528caf84f32ee, type: 3}
 --- !u!4 &1505531311539300403 stripped
@@ -538,6 +543,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.05
       objectReference: {fileID: 0}
+    - target: {fileID: 1505531311383702927, guid: 44c8609d4549dd848a0528caf84f32ee,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44c8609d4549dd848a0528caf84f32ee, type: 3}
 --- !u!4 &1505531311748930477 stripped
@@ -627,6 +637,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 1505531311383702927, guid: 44c8609d4549dd848a0528caf84f32ee,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44c8609d4549dd848a0528caf84f32ee, type: 3}
