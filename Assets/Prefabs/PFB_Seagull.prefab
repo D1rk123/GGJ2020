@@ -114,7 +114,7 @@ MonoBehaviour:
   headTransform: {fileID: 7378452494947186608}
   beakTip: {fileID: 1197085833251461588}
   _incomingSpeed: 4
-  _secondsPerPeck: 3
+  _secondsPerPeck: 5
   _peckSpeed: 25
   _hitBoxHalfExtends: {x: 0.3, y: 0.3, z: 100}
   _dyingDuration: 3

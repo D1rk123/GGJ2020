@@ -155,6 +155,8 @@ public class Seagull : MonoBehaviour
 		foreach (Collider col in hitColliders) {
 			IBreakable breakable = col.GetComponent<IBreakable>();
 			breakable?.Break();
+			if (breakable != null)
+				Debug.Log(col.name);
 			AudioManager.PlayAudioClip(AudioManager.AudioClips.BreakingIce);
 		}
 
