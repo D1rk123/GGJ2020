@@ -15,7 +15,7 @@ MonoBehaviour:
   Path: event:/SFX/Character/Land
   guid: 18e3d28d32e736418dd58da7a6a1e2c0
   Banks:
-  - {fileID: 3140826988628652888}
+  - {fileID: -4138135043922259382}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -38,7 +38,7 @@ MonoBehaviour:
   Path: event:/SFX/Cannon/Cannon
   guid: 7cc60973f6fea74d958dc893efd2b468
   Banks:
-  - {fileID: 3140826988628652888}
+  - {fileID: -4138135043922259382}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -60,7 +60,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: FMOD/Build/Desktop/Master.strings.bank
   SubDir: 
-  lastModified: 637162478420000000
+  lastModified: 637162562108908857
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -83,6 +83,24 @@ MonoBehaviour:
   Max: 2
   Default: 0
   Exists: 1
+--- !u!114 &-4138135043922259382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637162562108878929
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &-3961709609402857854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -98,7 +116,7 @@ MonoBehaviour:
   Path: event:/SFX/Seagull_Scream
   guid: d0c185338b91bd419d6f6500f403655f
   Banks:
-  - {fileID: 3140826988628652888}
+  - {fileID: -4138135043922259382}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -106,6 +124,23 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 4401
+--- !u!114 &-3928541358462367689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Music/Danger
+  m_EditorClassIdentifier: 
+  Name: Danger
+  Min: 0
+  Max: 2
+  Default: 0
+  Exists: 1
 --- !u!114 &-3479056112392187243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,7 +156,7 @@ MonoBehaviour:
   Path: event:/SFX/Cannon/Cannon_Impact
   guid: ba0e5471e7aeac4e942ef82c6dd375a3
   Banks:
-  - {fileID: 3140826988628652888}
+  - {fileID: -4138135043922259382}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -160,7 +195,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: -6774424049747831250}
-  - {fileID: 3140826988628652888}
+  - {fileID: -4138135043922259382}
   EditorEvents:
   - {fileID: 3021362651144574114}
   - {fileID: 8937961037665047246}
@@ -175,10 +210,10 @@ MonoBehaviour:
   - {fileID: -3961709609402857854}
   EditorParameters: []
   MasterBanks:
-  - {fileID: 3140826988628652888}
+  - {fileID: -4138135043922259382}
   StringsBanks:
   - {fileID: -6774424049747831250}
-  stringsBankWriteTime: 637162478420000000
+  stringsBankWriteTime: 637162562108908857
   cacheVersion: 3
 --- !u!114 &762115034060272117
 MonoBehaviour:
@@ -195,7 +230,7 @@ MonoBehaviour:
   Path: event:/SFX/Geyser
   guid: 9b9390741d8c60418c8d05723372c803
   Banks:
-  - {fileID: 3140826988628652888}
+  - {fileID: -4138135043922259382}
   IsStream: 1
   Is3D: 0
   IsOneShot: 1
@@ -218,7 +253,7 @@ MonoBehaviour:
   Path: event:/SFX/Breaking_Ice
   guid: 5096c31d6313d14487b1062a7c93a34e
   Banks:
-  - {fileID: 3140826988628652888}
+  - {fileID: -4138135043922259382}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -241,7 +276,7 @@ MonoBehaviour:
   Path: event:/SFX/Character/Interact
   guid: 859d63fc953fa54ea7c1931e9ff378f2
   Banks:
-  - {fileID: 3140826988628652888}
+  - {fileID: -4138135043922259382}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -282,12 +317,12 @@ MonoBehaviour:
   Path: event:/Music
   guid: 0a3eada9a299884881532a7d588b1706
   Banks:
-  - {fileID: 3140826988628652888}
+  - {fileID: -4138135043922259382}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: -5466880807442472704}
+  - {fileID: -3928541358462367689}
   MinDistance: 0
   MaxDistance: 0
   Length: 92054
@@ -324,7 +359,7 @@ MonoBehaviour:
   Path: event:/Ambience
   guid: 4683c0d16e861f4f88a61c201f5f04ab
   Banks:
-  - {fileID: 3140826988628652888}
+  - {fileID: -4138135043922259382}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -347,7 +382,7 @@ MonoBehaviour:
   Path: event:/SFX/Explosion
   guid: 228e3b8124f5fb4780b592f174879b98
   Banks:
-  - {fileID: 3140826988628652888}
+  - {fileID: -4138135043922259382}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -370,7 +405,7 @@ MonoBehaviour:
   Path: event:/SFX/Character/Jump
   guid: 142142b4018b0a419e955d3210a63816
   Banks:
-  - {fileID: 3140826988628652888}
+  - {fileID: -4138135043922259382}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
