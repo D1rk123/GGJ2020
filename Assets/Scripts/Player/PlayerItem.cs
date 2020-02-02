@@ -7,10 +7,12 @@ public class PlayerItem : MonoBehaviour
     List<Collider> m_pickupObjects = new List<Collider>();
     private PlayerInputs m_playerInputs;
     bool m_hasSnow = false;
+    Transform m_body;
 
     private void Start()
     {
         m_playerInputs = GetComponent<PlayerInputs>();
+        m_body = transform.GetChild(1);
     }
 
     void OnTriggerEnter(Collider other)
@@ -29,6 +31,16 @@ public class PlayerItem : MonoBehaviour
             m_pickupObjects.Remove(other);
         }
     }
+
+    private void Grow()
+    {
+        m_body.localScale = new Vector3(1, 1, 1);
+    }
+
+    private void Shrink()
+    {
+        m_body.localScale = new Vector3(0.7f, 0.7f, 1);
+    }
 	
     void Update()
     {
@@ -37,7 +49,12 @@ public class PlayerItem : MonoBehaviour
             ISnowResource snowResource = m_pickupObjects[0].gameObject.GetComponent<ISnowResource>();
             if (snowResource != null)
             {
+                bool hadSnow = m_hasSnow;
                 m_hasSnow = snowResource.GatherSnow() || m_hasSnow;
+                if(m_hasSnow && !hadSnow)
+                {
+                    Grow();
+                }
             }
 
             ISnowDeposit snowDeposit = m_pickupObjects[0].gameObject.GetComponent<ISnowDeposit>();
@@ -46,6 +63,10 @@ public class PlayerItem : MonoBehaviour
                 if (m_hasSnow)
                 {
                     m_hasSnow = !snowDeposit.DepositSnow();
+                    if(!m_hasSnow)
+                    {
+                        Shrink();
+                    }
                 }
             }
 
