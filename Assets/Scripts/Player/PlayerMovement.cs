@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         m_rigidbody = GetComponent<Rigidbody>();
-        m_collider = GetComponent<Collider>();
+        m_collider = transform.GetComponentInChildren<Collider>();
         m_playerInputs = GetComponent<PlayerInputs>();
     }
 
@@ -96,12 +96,13 @@ public class PlayerMovement : MonoBehaviour
         Vector3 extents = m_collider.bounds.extents;
 
         Collider[] collisions = Physics.OverlapBox(
-            m_collider.bounds.center + Vector3.down * 0.02f, m_collider.bounds.extents - new Vector3(0.01f, 0.01f, 0.01f), transform.rotation, m_collisionMask.value
+            m_collider.bounds.center + Vector3.down * 0.02f, m_collider.bounds.extents - new Vector3(0.01f, 0.01f, 0.01f), m_collider.transform.rotation, m_collisionMask.value
             );
 
         if (m_playerInputs.JumpInputDown &&
             collisions.Any(c => !c.isTrigger))
         {
+            Debug.Log("Number of collision: " + collisions.Length);
             Vector3 v = m_rigidbody.velocity;
             v.y = m_jumpSpeed;
             m_rigidbody.velocity = v;

@@ -25,7 +25,7 @@ public class Seagull : MonoBehaviour
 	[Header("Fighting Settings")]
 	[SerializeField] float _secondsPerPeck = 1.2f;
 	[SerializeField] float _peckSpeed = 38;
-	[SerializeField] float _hitBoxHalfExtends = 2;
+	[SerializeField] Vector3 _hitBoxHalfExtends = new Vector3(2,2,100);
 
 	GameObject[] _breakableObjects;
 	GameObject[] _playerCharacters;
@@ -67,7 +67,7 @@ public class Seagull : MonoBehaviour
 
 	private void Update ()
 	{
-		Debug.Log(_state);
+		//Debug.Log(_state);
 
 		switch (_state) {
 			case States.Incoming:
@@ -87,8 +87,7 @@ public class Seagull : MonoBehaviour
 		_xPosition = Mathf.MoveTowards(_xPosition, _fightingPosition.x, _incomingSpeed * Time.deltaTime);
 		_yPosition = _fightingPosition.y;
 		_zPosition = _fightingPosition.z;
-
-		Debug.Log(_xPosition + " " + _fightingPosition.x);
+		
 		if (Mathf.Abs(_xPosition - _fightingPosition.x) < 0.05f) {
 			_state = States.Fighting;
 		}
@@ -134,6 +133,16 @@ public class Seagull : MonoBehaviour
 			}
 			
 			yield return null;
+		}
+
+		//Beak has arrived
+		Collider[] hitColliders = Physics.OverlapBox(beakTip.position, _hitBoxHalfExtends);
+		foreach (Collider col in hitColliders) {
+			IBreakable breakable = col.GetComponent<IBreakable>();
+			breakable?.Break();
+			if (breakable != null) {
+				Debug.Log("Broke " + col.name);
+			}
 		}
 
 		//Moving beak back
