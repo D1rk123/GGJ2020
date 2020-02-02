@@ -7,7 +7,7 @@ public class LossManager : MonoBehaviour
 {
 	public GameObject[] breakableWallObjects;
 	public GameObject[] playerObjects;
-	public ParticleSystem[] explosionParticles;
+	public GameObject ExplosionParticles;
 	public float explodingDuration = 4;
 	public float secondsPerExplosion = .2f;
 
@@ -47,10 +47,11 @@ public class LossManager : MonoBehaviour
 
 	IEnumerator DestroyMountain ()
 	{
+		ExplosionParticles.SetActive(true);
 		int numberOfExplosions = Mathf.RoundToInt(explodingDuration / secondsPerExplosion);
 
 		for (int i = 0; i < numberOfExplosions; i++) {
-			explosionParticles[UnityEngine.Random.Range(0, explosionParticles.Length)].Play();
+			AudioManager.PlayAudioClip(AudioManager.AudioClips.DeathExplosion);
 			yield return new WaitForSeconds(secondsPerExplosion);
 		}
 
