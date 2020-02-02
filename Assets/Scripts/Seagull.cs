@@ -16,6 +16,7 @@ public class Seagull : MonoBehaviour
 	bool _isLookingLeft = false;
 	float _xPosition;
 	float _yPosition;
+	float _zPosition;
 	private int _health = 0;
 
 	[Header("Incoming Settings")]
@@ -23,7 +24,7 @@ public class Seagull : MonoBehaviour
 
 	[Header("Fighting Settings")]
 	[SerializeField] float _secondsPerPeck = 1.2f;
-	[SerializeField] float _peckSpeed = 30;
+	[SerializeField] float _peckSpeed = 38;
 	[SerializeField] float _hitBoxHalfExtends = 2;
 
 	GameObject[] _breakableObjects;
@@ -56,6 +57,7 @@ public class Seagull : MonoBehaviour
 		transform.position = spawnPosition;
 		_xPosition = spawnPosition.x;
 		_yPosition = spawnPosition.y;
+		_zPosition = spawnPosition.z;
 		_health = startingHealth;
 		_breakableObjects = breakableObjects;
 		_playerCharacters = playerCharacters;
@@ -76,17 +78,18 @@ public class Seagull : MonoBehaviour
 				break;
 		}
 
-		transform.position = new Vector3(_xPosition, _yPosition + SeagullWaterBob.waterBobHeight, 0);
+		transform.position = new Vector3(_xPosition, _yPosition + SeagullWaterBob.waterBobHeight, _zPosition);
 		transform.rotation = Quaternion.Euler(0, 0, SeagullWaterBob.waterBobZRotation);
 	}
 
 	void Incoming ()
 	{
-		Vector3 newPosition = Vector3.MoveTowards(new Vector3(_xPosition, _yPosition, 0), _fightingPosition, _incomingSpeed * Time.deltaTime);
-		_xPosition = newPosition.x;
-		_yPosition = newPosition.y;
+		_xPosition = Mathf.MoveTowards(_xPosition, _fightingPosition.x, _incomingSpeed * Time.deltaTime);
+		_yPosition = _fightingPosition.y;
+		_zPosition = _fightingPosition.z;
 
-		if (Vector3.Distance(transform.position, _fightingPosition) < 0.05f) {
+		Debug.Log(_xPosition + " " + _fightingPosition.x);
+		if (Mathf.Abs(_xPosition - _fightingPosition.x) < 0.05f) {
 			_state = States.Fighting;
 		}
 	}
@@ -99,7 +102,6 @@ public class Seagull : MonoBehaviour
 				_isPecking = true;
 				_fightingTimer = 0;
 				StartCoroutine(PerformPeck());
-				Debug.Log("performing peck");
 			}
 		} else {
 
@@ -118,8 +120,6 @@ public class Seagull : MonoBehaviour
 			target = _playerCharacters[roll - _breakableObjects.Length];
 		}
 
-		Debug.Log("target: " + target.name);
-
 		Vector3 oldBeakPosition;
 		Vector3 newBeakPosition;
 
@@ -127,30 +127,23 @@ public class Seagull : MonoBehaviour
 		while (true) {
 			oldBeakPosition = beakTip.position;
 			newBeakPosition = Vector3.MoveTowards(beakTip.position, target.transform.position, _peckSpeed * Time.deltaTime);
-			headTransform.Translate(newBeakPosition - oldBeakPosition);
-			Debug.Log(newBeakPosition - oldBeakPosition);
-			Debug.Log(beakTip.position);
+			headTransform.position += newBeakPosition - oldBeakPosition;
 
 			if (Vector3.Distance(beakTip.position, target.transform.position) < 0.05f) {
-				Debug.Log(Vector3.Distance(beakTip.position, target.transform.position));
 				break;
 			}
-
-			Debug.Log("moving in");
+			
 			yield return null;
 		}
 
-		//Moving back
+		//Moving beak back
 		while (true) {
-			oldBeakPosition = beakTip.position;
-			newBeakPosition = Vector3.MoveTowards(beakTip.position, headTransform.position - _headBaseLocalPosition, _peckSpeed * Time.deltaTime);
-			headTransform.Translate(newBeakPosition - oldBeakPosition);
+			headTransform.localPosition = Vector3.MoveTowards(headTransform.localPosition, _headBaseLocalPosition, _peckSpeed * 0.006f * Time.deltaTime);
 
-			if (Vector3.Distance(beakTip.position, headTransform.position - _headBaseLocalPosition) < 0.05f) {
+			if (Vector3.Distance(headTransform.localPosition, _headBaseLocalPosition) < 0.0005f) {
 				break;
 			}
-
-			Debug.Log("moving out");
+			
 			yield return null;
 		}
 
