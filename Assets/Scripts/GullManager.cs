@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -24,6 +24,9 @@ public class GullManager : MonoBehaviour
     public Seagull m_leftSeagull;
     public Seagull m_rightSeagull;
 
+	public GameObject[] breakableObjects;
+	public GameObject[] playerCharacters;
+
     public string GullSideToString(GullSide side)
     {
         if (side == GullSide.Right)
@@ -44,12 +47,12 @@ public class GullManager : MonoBehaviour
         if(side == GullSide.Left)
         {
             m_leftGullAlive = true;
-            m_leftSeagull.Init(new Vector3(-40, -10, 0), new Vector3(-24, -10, 0), false, m_gullHealth);
+            m_leftSeagull.Init(new Vector3(-40, -10, 0), new Vector3(-24, -10, 0), false, m_gullHealth, breakableObjects, playerCharacters);
         }
         else
         {
             m_rightGullAlive = true;
-            m_rightSeagull.Init(new Vector3(40, -10, 0), new Vector3(24, -10, 0), true, m_gullHealth);
+            m_rightSeagull.Init(new Vector3(40, -10, 0), new Vector3(24, -10, 0), true, m_gullHealth, breakableObjects, playerCharacters);
         }
 
         Debug.Log("Spawned gull on the " + GullSideToString(side) + " side");

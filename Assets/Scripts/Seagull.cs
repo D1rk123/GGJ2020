@@ -31,7 +31,7 @@ public class Seagull : MonoBehaviour
 		//Init(new Vector3(-40, -10, 0), new Vector3(-24, -10, 0), false);
 	}
 
-	public void Init (Vector3 spawnPosition, Vector3 fightingPosition, bool isLookingLeft, int startingHealth)
+	public void Init (Vector3 spawnPosition, Vector3 fightingPosition, bool isLookingLeft, int startingHealth, GameObject[] breakableObjects, GameObject[] playerCharacters)
 	{
 		_state = States.Incoming;
 		_fightingPosition = fightingPosition;
