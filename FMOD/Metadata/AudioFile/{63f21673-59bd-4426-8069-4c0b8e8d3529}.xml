@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{63f21673-59bd-4426-8069-4c0b8e8d3529}">
+		<property name="assetPath">
+			<value>Water, Splash, Rock, Throw In Lake 1 SND35327.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>96</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>2.1051250000000001</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{e352a00c-d8c5-417e-8939-45c998e10ef7}</destination>
+		</relationship>
+	</object>
+</objects>
