@@ -56,6 +56,5 @@ public class CannonBall : MonoBehaviour
         m_rigidbody.velocity = transform.localToWorldMatrix * m_shotDirection.normalized * m_shotSpeed;
         m_rigidbody.useGravity = true;
         shotTime = Time.time;
-        Debug.Log("Canonball shoot");
     }
 }
