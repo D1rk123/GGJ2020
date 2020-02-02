@@ -28,29 +28,35 @@ public class CannonBall : MonoBehaviour
             return;
         }
 
+
         Collider[] collisions = Physics.OverlapSphere(
-            transform.position, transform.localScale.y/2, (1 << 9)
+            transform.position, transform.localScale.y / 2, (1 << 9)
             );
+
+        Debug.Log("transform.position:" + transform.position + ", transform.localScale.y/2:" + transform.localScale.y / 2);
         if (collisions.Length > 0)
         {
-            m_onImpactParticles.transform.position = transform.position;
+            Debug.Log("Cannonball hit");
+            m_onImpactParticles.transform.position = transform.position+new Vector3(0,0,-1);
             m_onImpactParticles.Stop();
             m_onImpactParticles.Play();
 
             Seagull gull = collisions[0].transform.parent.gameObject.GetComponent<Seagull>();
             gull.ReceiveDamage(1);
             Destroy(gameObject);
+            
         }
 
         if(Time.time > shotTime + m_disableTime)
         {
+            Debug.Log("Cannonball timeout");
             Destroy(gameObject);
         }
     }
 
     public void Shoot()
     {
-        transform.localPosition = m_shotStartPos;
+        //transform.localPosition = m_shotStartPos;
         //m_rigidbody.AddRelativeForce(m_shotDirection.normalized * m_shotSpeed, ForceMode.VelocityChange);
         
         m_rigidbody.velocity = transform.localToWorldMatrix * m_shotDirection.normalized * m_shotSpeed;

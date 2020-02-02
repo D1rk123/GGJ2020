@@ -184,6 +184,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1005891799904649292}
   - component: {fileID: 5938598729710598799}
+  - component: {fileID: 2851956241843090874}
+  - component: {fileID: 1768799816051321123}
   m_Layer: 9
   m_Name: CollisionCapsule
   m_TagString: Untagged
@@ -219,6 +221,32 @@ CapsuleCollider:
   m_Height: 14
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &2851956241843090874
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1475756595226647419}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 6.764504, y: 71.01849, z: 18.376331}
+  m_Center: {x: -9.091805, y: 3.6339352, z: -1.8547857}
+--- !u!65 &1768799816051321123
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1475756595226647419}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 26.467237, y: 4.2851453, z: 20.653063}
+  m_Center: {x: 0.20204398, y: -12.58736, z: -1.1685103}
 --- !u!1001 &1197085833339528543
 PrefabInstance:
   m_ObjectHideFlags: 0

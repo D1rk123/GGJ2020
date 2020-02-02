@@ -15,7 +15,7 @@ MonoBehaviour:
   Path: event:/SFX/Geyser
   guid: 9b9390741d8c60418c8d05723372c803
   Banks:
-  - {fileID: -1342765563190837874}
+  - {fileID: -1937768461960829604}
   IsStream: 1
   Is3D: 0
   IsOneShot: 1
@@ -23,6 +23,24 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 2125
+--- !u!114 &-7285770909812093606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637161901040000000
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &-6010224306702407553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56,7 +74,7 @@ MonoBehaviour:
   Path: event:/SFX/Character/Snow_Movement
   guid: 38ce938e954a9f48bc10a9da09761c4f
   Banks:
-  - {fileID: -1342765563190837874}
+  - {fileID: -1937768461960829604}
   IsStream: 0
   Is3D: 1
   IsOneShot: 0
@@ -79,7 +97,7 @@ MonoBehaviour:
   Path: event:/Ambience
   guid: 4683c0d16e861f4f88a61c201f5f04ab
   Banks:
-  - {fileID: -1342765563190837874}
+  - {fileID: -1937768461960829604}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -119,7 +137,7 @@ MonoBehaviour:
   Path: event:/SFX/Breaking_Ice
   guid: 5096c31d6313d14487b1062a7c93a34e
   Banks:
-  - {fileID: -1342765563190837874}
+  - {fileID: -1937768461960829604}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -127,6 +145,24 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 6000
+--- !u!114 &-1937768461960829604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637162419011911777
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &-1532683021103673489
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,7 +197,7 @@ MonoBehaviour:
   lastModified: 637162419011911777
   LoadResult: 0
   FileSizes: []
-  Exists: 1
+  Exists: 0
 --- !u!114 &-89656535122945635
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,7 +213,7 @@ MonoBehaviour:
   Path: event:/SFX/Character/Land
   guid: 18e3d28d32e736418dd58da7a6a1e2c0
   Banks:
-  - {fileID: -1342765563190837874}
+  - {fileID: -1937768461960829604}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -199,7 +235,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 1569100935280373845}
-  - {fileID: -1342765563190837874}
+  - {fileID: -1937768461960829604}
   EditorEvents:
   - {fileID: 7699079624065881874}
   - {fileID: 1495718423087233233}
@@ -210,11 +246,45 @@ MonoBehaviour:
   - {fileID: -9139531223563411087}
   EditorParameters: []
   MasterBanks:
-  - {fileID: -1342765563190837874}
+  - {fileID: -1937768461960829604}
   StringsBanks:
   - {fileID: 1569100935280373845}
   stringsBankWriteTime: 637162419011921771
   cacheVersion: 3
+--- !u!114 &362025152187330096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Music/Danger
+  m_EditorClassIdentifier: 
+  Name: Danger
+  Min: 0
+  Max: 2
+  Default: 0
+  Exists: 1
+--- !u!114 &1116963918578274612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Music/Danger
+  m_EditorClassIdentifier: 
+  Name: Danger
+  Min: 0
+  Max: 2
+  Default: 0
+  Exists: 1
 --- !u!114 &1495718423087233233
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,7 +300,7 @@ MonoBehaviour:
   Path: event:/SFX/Character/Jump
   guid: 142142b4018b0a419e955d3210a63816
   Banks:
-  - {fileID: -1342765563190837874}
+  - {fileID: -1937768461960829604}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -292,7 +362,7 @@ MonoBehaviour:
   Min: 0
   Max: 2
   Default: 0
-  Exists: 1
+  Exists: 0
 --- !u!114 &7699079624065881874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -308,12 +378,12 @@ MonoBehaviour:
   Path: event:/Music
   guid: 0a3eada9a299884881532a7d588b1706
   Banks:
-  - {fileID: -1342765563190837874}
+  - {fileID: -1937768461960829604}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 6076229167561980671}
+  - {fileID: 362025152187330096}
   MinDistance: 0
   MaxDistance: 0
   Length: 92500

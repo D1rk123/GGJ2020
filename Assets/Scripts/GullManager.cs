@@ -48,12 +48,12 @@ public class GullManager : MonoBehaviour
         if(side == GullSide.Left)
         {
             m_leftGullAlive = true;
-            m_leftSeagull.Init(new Vector3(-8.25f, -3.64f, -7.42f)+ new Vector3(-15, 0, 0), new Vector3(-8.25f, -3.64f, -7.42f), false, m_gullHealth, leftBreakableObjects, playerCharacters);
+            m_leftSeagull.Init(new Vector3(-8.25f, -3.64f, -0.01000094f) + new Vector3(-15, 0, 0), new Vector3(-8.25f, -3.64f, -0.01000094f), false, m_gullHealth, leftBreakableObjects, playerCharacters);
         }
         else
         {
             m_rightGullAlive = true;
-            m_rightSeagull.Init(new Vector3(8.14f, -3.64f, -7.42f) + new Vector3(15, 0, 0), new Vector3(8.14f, -3.64f, -7.42f), true, m_gullHealth, rightBreakableObjects, playerCharacters);
+            m_rightSeagull.Init(new Vector3(8.14f, -3.64f, -0.01000094f) + new Vector3(15, 0, 0), new Vector3(8.14f, -3.64f, -0.01000094f), true, m_gullHealth, rightBreakableObjects, playerCharacters);
         }
 
         Debug.Log("Spawned gull on the " + GullSideToString(side) + " side");
