@@ -20,6 +20,9 @@ public class GullManager : MonoBehaviour
     private bool m_leftGullAlive = false;
     private bool m_rightGullAlive = false;
 
+    public Seagull m_leftSeagull;
+    public Seagull m_rightSeagull;
+
     public string GullSideToString(GullSide side)
     {
         if (side == GullSide.Right)
@@ -40,56 +43,61 @@ public class GullManager : MonoBehaviour
         if(side == GullSide.Left)
         {
             m_leftGullAlive = true;
+            m_leftSeagull.Init(new Vector3(-40, -10, 0), new Vector3(-24, -10, 0), false);
         }
         else
         {
             m_rightGullAlive = true;
+            m_rightSeagull.Init(new Vector3(40, -10, 0), new Vector3(24, -10, 0), true);
         }
 
         Debug.Log("Spawned gull on the " + GullSideToString(side) + " side");
     }
 
-    public void OnGullRemoved(GullSide side)
+    public void OnGullRemoved(bool isLookingLeft)
     {
-        if (side == GullSide.Left)
+        GullSide side;
+        if (!isLookingLeft)
         {
             m_leftGullAlive = false;
+            side = GullSide.Left;
         }
         else
         {
             m_rightGullAlive = false;
+            side = GullSide.Right;
         }
 
         Debug.Log("Gull on the " + GullSideToString(side) + " side was removed");
         StartCoroutine(SpawnGullDelayed(side, getSpawnDelay()));
     }
 
-    void StartGame()
+    // Start is called before the first frame update
+    void Start()
     {
         m_firstGullSide = (Random.Range(0, 1) > 0.5) ? GullSide.Left : GullSide.Right;
         m_secondGullSide = (m_firstGullSide == GullSide.Right) ? GullSide.Left : GullSide.Right;
 
         StartCoroutine(SpawnGullDelayed(m_firstGullSide, m_firstGullDelay));
         StartCoroutine(SpawnGullDelayed(m_secondGullSide, m_secondGullDelay));
-    }
 
+        m_leftSeagull.gameObject.SetActive(false);
+        m_rightSeagull.gameObject.SetActive(false);
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        StartGame();
+        m_leftSeagull.IsRemoved += OnGullRemoved;
+        m_rightSeagull.IsRemoved += OnGullRemoved;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.K) && m_leftGullAlive)
-        {
-            OnGullRemoved(GullSide.Left);
-        }
-        if (Input.GetKeyDown(KeyCode.L) && m_rightGullAlive)
-        {
-            OnGullRemoved(GullSide.Right);
-        }
+        //if(Input.GetKeyDown(KeyCode.K) && m_leftGullAlive)
+        //{
+        //    OnGullRemoved(GullSide.Left);
+        //}
+        //if (Input.GetKeyDown(KeyCode.L) && m_rightGullAlive)
+        //{
+        //    OnGullRemoved(GullSide.Right);
+        //}
     }
 }
