@@ -381,9 +381,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_firstGullDelay: 1
-  m_secondGullDelay: 25
+  m_secondGullDelay: 1
   m_respawnAverage: 3
   m_respawnRangeFactor: 2
+  m_gullHealth: 3
   m_leftSeagull: {fileID: 616648978}
   m_rightSeagull: {fileID: 710163907}
 --- !u!4 &303674318
@@ -938,6 +939,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1475756595226647419, guid: df13c2f003a59ac4bbe0585bff838635,
+        type: 3}
+      propertyPath: m_Name
+      value: ColissionCapsule
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df13c2f003a59ac4bbe0585bff838635, type: 3}
 --- !u!1 &1516560046
@@ -1382,6 +1388,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PFB_Cannon
+      objectReference: {fileID: 0}
+    - target: {fileID: 678053424688982812, guid: 6eaf39267c432b140b87717b37bec282,
+        type: 3}
+      propertyPath: m_shotSpeed
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6eaf39267c432b140b87717b37bec282, type: 3}
