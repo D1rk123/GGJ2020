@@ -1,6 +1,93 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8459220590430800312
+--- !u!114 &-9139531223563411087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Geyser
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Geyser
+  guid: 9b9390741d8c60418c8d05723372c803
+  Banks:
+  - {fileID: 5841208707239568000}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 2125
+--- !u!114 &-6010224306702407553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637162439910160085
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
+--- !u!114 &-4916840455636486254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Character/Snow_Movement
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Character/Snow_Movement
+  guid: 38ce938e954a9f48bc10a9da09761c4f
+  Banks:
+  - {fileID: 5841208707239568000}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 8000
+--- !u!114 &-2914226815112888914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ambience
+  m_EditorClassIdentifier: 
+  Path: event:/Ambience
+  guid: 4683c0d16e861f4f88a61c201f5f04ab
+  Banks:
+  - {fileID: 5841208707239568000}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 36500
+--- !u!114 &-2525763479560884181
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -17,7 +104,7 @@ MonoBehaviour:
   Max: 2
   Default: 0
   Exists: 0
---- !u!114 &-5776486533352651521
+--- !u!114 &-2109078537755012080
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -27,67 +114,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Music
+  m_Name: event:/SFX/Breaking_Ice
   m_EditorClassIdentifier: 
-  Path: event:/Music
-  guid: 0a3eada9a299884881532a7d588b1706
+  Path: event:/SFX/Breaking_Ice
+  guid: 5096c31d6313d14487b1062a7c93a34e
   Banks:
-  - {fileID: 2494399682619626901}
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 0
-  Parameters:
-  - {fileID: -1504074969262858650}
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 92500
---- !u!114 &-4208504725675111901
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Character/Snow_Movement
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/Character/Snow_Movement
-  guid: 38ce938e954a9f48bc10a9da09761c4f
-  Banks:
-  - {fileID: 2494399682619626901}
+  - {fileID: 5841208707239568000}
   IsStream: 0
-  Is3D: 1
-  IsOneShot: 0
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 8000
---- !u!114 &-2746095295804361156
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Ambience
-  m_EditorClassIdentifier: 
-  Path: event:/Ambience
-  guid: 4683c0d16e861f4f88a61c201f5f04ab
-  Banks:
-  - {fileID: 2494399682619626901}
-  IsStream: 1
   Is3D: 0
-  IsOneShot: 0
+  IsOneShot: 1
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
-  Length: 36500
---- !u!114 &-1504074969262858650
+  Length: 6000
+--- !u!114 &-1532683021103673489
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -104,37 +144,7 @@ MonoBehaviour:
   Max: 2
   Default: 0
   Exists: 1
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
-  m_Name: FMODStudioCache
-  m_EditorClassIdentifier: 
-  EditorBanks:
-  - {fileID: 7701562511461201800}
-  - {fileID: 2494399682619626901}
-  EditorEvents:
-  - {fileID: -5776486533352651521}
-  - {fileID: 1578027108742341494}
-  - {fileID: 655493471227308662}
-  - {fileID: -4208504725675111901}
-  - {fileID: -2746095295804361156}
-  - {fileID: 1489392940449628510}
-  - {fileID: 901893839219120590}
-  EditorParameters: []
-  MasterBanks:
-  - {fileID: 2494399682619626901}
-  StringsBanks:
-  - {fileID: 7701562511461201800}
-  stringsBankWriteTime: 637162419011921771
-  cacheVersion: 3
---- !u!114 &655493471227308662
+--- !u!114 &-89656535122945635
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -149,7 +159,7 @@ MonoBehaviour:
   Path: event:/SFX/Character/Land
   guid: 18e3d28d32e736418dd58da7a6a1e2c0
   Banks:
-  - {fileID: 2494399682619626901}
+  - {fileID: 5841208707239568000}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -157,7 +167,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1083
---- !u!114 &901893839219120590
+--- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -166,44 +176,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Geyser
+  m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
+  m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
-  Path: event:/SFX/Geyser
-  guid: 9b9390741d8c60418c8d05723372c803
-  Banks:
-  - {fileID: 2494399682619626901}
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 2125
---- !u!114 &1489392940449628510
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Breaking_Ice
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/Breaking_Ice
-  guid: 5096c31d6313d14487b1062a7c93a34e
-  Banks:
-  - {fileID: 2494399682619626901}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 6000
---- !u!114 &1578027108742341494
+  EditorBanks:
+  - {fileID: 1569100935280373845}
+  - {fileID: 5841208707239568000}
+  EditorEvents:
+  - {fileID: 7699079624065881874}
+  - {fileID: 1495718423087233233}
+  - {fileID: -89656535122945635}
+  - {fileID: -4916840455636486254}
+  - {fileID: -2914226815112888914}
+  - {fileID: -2109078537755012080}
+  - {fileID: -9139531223563411087}
+  EditorParameters: []
+  MasterBanks:
+  - {fileID: 5841208707239568000}
+  StringsBanks:
+  - {fileID: 1569100935280373845}
+  stringsBankWriteTime: 637161901040000000
+  cacheVersion: 3
+--- !u!114 &1495718423087233233
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -218,7 +212,7 @@ MonoBehaviour:
   Path: event:/SFX/Character/Jump
   guid: 142142b4018b0a419e955d3210a63816
   Banks:
-  - {fileID: 2494399682619626901}
+  - {fileID: 5841208707239568000}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -226,25 +220,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1093
---- !u!114 &2494399682619626901
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.bank
-  m_EditorClassIdentifier: 
-  Path: FMOD/Build/Desktop/Master.bank
-  SubDir: 
-  lastModified: 637162419011911777
-  LoadResult: 0
-  FileSizes: []
-  Exists: 1
---- !u!114 &7701562511461201800
+--- !u!114 &1569100935280373845
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -258,13 +234,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: FMOD/Build/Desktop/Master.strings.bank
   SubDir: 
-  lastModified: 637162419011921771
+  lastModified: 637161901040000000
   LoadResult: 0
   FileSizes:
   - Name: Desktop
     Value: 1062
   Exists: 1
---- !u!114 &8870103678908914540
+--- !u!114 &5841208707239568000
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -281,4 +257,28 @@ MonoBehaviour:
   lastModified: 637161901040000000
   LoadResult: 0
   FileSizes: []
-  Exists: 0
+  Exists: 1
+--- !u!114 &7699079624065881874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music
+  m_EditorClassIdentifier: 
+  Path: event:/Music
+  guid: 0a3eada9a299884881532a7d588b1706
+  Banks:
+  - {fileID: 5841208707239568000}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -1532683021103673489}
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 92500
