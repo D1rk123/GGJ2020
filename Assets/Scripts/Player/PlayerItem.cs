@@ -5,10 +5,17 @@ using UnityEngine;
 public class PlayerItem : MonoBehaviour
 {
     List<Collider> m_pickupObjects = new List<Collider>();
+    private PlayerInputs m_playerInputs;
+    bool m_hasSnow = false;
+
+    private void Start()
+    {
+        m_playerInputs = GetComponent<PlayerInputs>();
+    }
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Pickup"))
+        if (other.gameObject.CompareTag("Interactable"))
         {
             Debug.Log("Entered pickup zone");
             m_pickupObjects.Add(other);
@@ -16,7 +23,7 @@ public class PlayerItem : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Pickup"))
+        if (other.gameObject.CompareTag("Interactable"))
         {
             Debug.Log("Exited pickup zone");
             m_pickupObjects.Remove(other);
@@ -25,10 +32,22 @@ public class PlayerItem : MonoBehaviour
 	
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F) && m_pickupObjects.Count > 0)
+        if (m_playerInputs.InteractInputDown && m_pickupObjects.Count > 0)
         {
-            m_pickupObjects[0].transform.SetParent(gameObject.transform);
-            Debug.Log("Holding object");
+            ISnowResource snowResource = m_pickupObjects[0].gameObject.GetComponent<ISnowResource>();
+            if (snowResource != null)
+            {
+                m_hasSnow = snowResource.GatherSnow() || m_hasSnow;
+            }
+
+            ISnowDeposit snowDeposit = m_pickupObjects[0].gameObject.GetComponent<ISnowDeposit>();
+            if (snowDeposit != null)
+            {
+                if (m_hasSnow)
+                {
+                    m_hasSnow = !snowDeposit.DepositSnow();
+                }
+            }
         }
 
     }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SnowPile : MonoBehaviour, IInteractable
+public class SnowPile : MonoBehaviour, ISnowResource
 {
 	public ParticleSystem _snowPickedUpParticles;
 
@@ -11,9 +11,11 @@ public class SnowPile : MonoBehaviour, IInteractable
 		_snowPickedUpParticles.Stop();
 	}
 
-	public void Interact ()
+	public bool GatherSnow()
 	{
+		Debug.Log("Gathering snow");
 		_snowPickedUpParticles.Stop();
 		_snowPickedUpParticles.Play();
+		return true;
 	}
 }

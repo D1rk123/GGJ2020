@@ -171,7 +171,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6615480794456329206}
-  m_Material: {fileID: 13400000, guid: a37921b0d4fa20840964a3f884bbe18f, type: 2}
+  m_Material: {fileID: 13400000, guid: 8a4c9a0f3c14b134fbaa89fba22d07e0, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -231,6 +231,8 @@ MonoBehaviour:
   m_deceleration: 40
   m_stopSpeed: 0.5
   m_jumpSpeed: 10
+  m_geyserAcceleration: 20
+  m_geyserMaxSpeed: 10
   m_collisionMask:
     serializedVersion: 2
     m_Bits: 1

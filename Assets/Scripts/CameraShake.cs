@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class CameraShake : MonoBehaviour
 {
-    public IEnumerator Shake (float duration, float intensity)
+    public IEnumerator Shake (float duration, float intensity, bool falloff = false)
     {
         float elapsed = 0.0f;
 
         while (elapsed < duration)
         {
+            float bound = intensity;
+            if(falloff)
+            {
+                bound *= 1 - (elapsed / duration);
+            }
             transform.localPosition = new Vector3(
-                Random.Range(-intensity, intensity),
-                Random.Range(-intensity, intensity),
+                Random.Range(-bound, bound),
+                Random.Range(-bound, bound),
                 0
             );
 
