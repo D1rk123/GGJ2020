@@ -21,6 +21,8 @@ public class LossManager : MonoBehaviour
 
 		for (int i = 0; i < breakableWallObjects.Length; i++) {
 			_breakableWalls[i] = breakableWallObjects[i].GetComponent<IBreakable>();
+		}
+		for (int i = 0; i < playerObjects.Length; i++) {
 			_playerCharacters[i] = playerObjects[i].GetComponent<IBreakable>();
 		}
 	}
