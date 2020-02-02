@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{9c485ff8-0a95-4e34-9991-ff7a0f8fd58b}">
+		<property name="assetPath">
+			<value>AMB_Cars_Road_Fall.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>14.299979166666667</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{e352a00c-d8c5-417e-8939-45c998e10ef7}</destination>
+		</relationship>
+	</object>
+</objects>

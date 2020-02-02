@@ -31,7 +31,7 @@ public class Seagull : MonoBehaviour
 		//Init(new Vector3(-40, -10, 0), new Vector3(-24, -10, 0), false);
 	}
 
-	public void Init (Vector3 spawnPosition, Vector3 fightingPosition, bool isLookingLeft)
+	public void Init (Vector3 spawnPosition, Vector3 fightingPosition, bool isLookingLeft, int startingHealth, GameObject[] breakableObjects, GameObject[] playerCharacters)
 	{
 		_state = States.Incoming;
 		_fightingPosition = fightingPosition;
@@ -39,7 +39,8 @@ public class Seagull : MonoBehaviour
 		transform.position = spawnPosition;
 		_xPosition = spawnPosition.x;
 		_yPosition = spawnPosition.y;
-		_health = 1;
+		_health = startingHealth;
+		Debug.Log("startingHealth: " + startingHealth);
 		gameObject.SetActive(true);
 	}
 
@@ -104,7 +105,9 @@ public class Seagull : MonoBehaviour
 
 	public void ReceiveDamage(int damage)
 	{
+		Debug.Log("Health before: " + _health);
 		_health -= damage;
+		Debug.Log("Health after: " + _health);
 		if (_health <= 0)
 		{
 			StartCoroutine(Dying());
