@@ -20,6 +20,7 @@ public class GullManager : MonoBehaviour
 
     private bool m_leftGullAlive = false;
     private bool m_rightGullAlive = false;
+	private int m_numberOfGullsAlive = 0;
 
     public Seagull m_leftSeagull;
     public Seagull m_rightSeagull;
@@ -49,15 +50,18 @@ public class GullManager : MonoBehaviour
         {
             m_leftGullAlive = true;
             m_leftSeagull.Init(new Vector3(-8.25f, -3.64f, -0.01000094f) + new Vector3(-15, 0, 0), new Vector3(-8.25f, -3.64f, -0.01000094f), false, m_gullHealth, leftBreakableObjects, playerCharacters);
+            m_numberOfGullsAlive++;
         }
         else
         {
             m_rightGullAlive = true;
             m_rightSeagull.Init(new Vector3(8.14f, -3.64f, -0.01000094f) + new Vector3(15, 0, 0), new Vector3(8.14f, -3.64f, -0.01000094f), true, m_gullHealth, rightBreakableObjects, playerCharacters);
+            m_numberOfGullsAlive++;
         }
 
         Debug.Log("Spawned gull on the " + GullSideToString(side) + " side");
-    }
+		OnGullsUpdate();
+	}
 
     public void OnGullRemoved(bool isLookingLeft)
     {
@@ -66,16 +70,19 @@ public class GullManager : MonoBehaviour
         {
             m_leftGullAlive = false;
             side = GullSide.Left;
+			m_numberOfGullsAlive--;
         }
         else
         {
             m_rightGullAlive = false;
             side = GullSide.Right;
-        }
+			m_numberOfGullsAlive--;
+		}
 
         Debug.Log("Gull on the " + GullSideToString(side) + " side was removed");
         StartCoroutine(SpawnGullDelayed(side, getSpawnDelay()));
-    }
+		OnGullsUpdate();
+	}
 
     // Start is called before the first frame update
     void Start()
@@ -105,4 +112,9 @@ public class GullManager : MonoBehaviour
         //    OnGullRemoved(GullSide.Right);
         //}
     }
+
+	void OnGullsUpdate ()
+	{
+		AudioManager.SetDanger((AudioManager.MusicDangerLevels) m_numberOfGullsAlive);
+	}
 }

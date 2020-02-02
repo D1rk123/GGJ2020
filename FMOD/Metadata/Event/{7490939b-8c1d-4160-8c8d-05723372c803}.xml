@@ -83,7 +83,7 @@
 	</object>
 	<object class="EventMixerMaster" id="{571b04a2-015d-44a8-8cbd-1e8416312c71}">
 		<property name="volume">
-			<value>8.5</value>
+			<value>4</value>
 		</property>
 		<relationship name="effectChain">
 			<destination>{ec558765-55dc-4f2a-8ed5-b2acf1844951}</destination>
@@ -104,6 +104,9 @@
 	<object class="SingleSound" id="{cb0a0727-6b0b-46ae-8249-de87bb825fe1}">
 		<property name="length">
 			<value>2</value>
+		</property>
+		<property name="color">
+			<value>Cyan</value>
 		</property>
 		<relationship name="modulators">
 			<destination>{1fb3b893-6f41-45f1-a640-489675c70180}</destination>
@@ -149,7 +152,7 @@
 	</object>
 	<object class="EventMixerGroup" id="{74f9504e-fac9-4109-bedb-924c2486ccaf}">
 		<property name="volume">
-			<value>-17</value>
+			<value>-13.5</value>
 		</property>
 		<property name="name">
 			<value>Water</value>

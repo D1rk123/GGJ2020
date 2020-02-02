@@ -114,6 +114,7 @@ public class PlayerMovement : MonoBehaviour
         if(geyser.CompareTag("Geyser"))
         {
             m_geysers.Add(geyser);
+			AudioManager.PlayAudioClip(AudioManager.AudioClips.Geyser);
         }
     }
 

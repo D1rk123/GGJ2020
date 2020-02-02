@@ -7,26 +7,42 @@ using System.Threading;
 
 public class AudioManager : MonoBehaviour
 {
-	public StudioEventEmitter music;
+	public enum AudioClips { Geyser, BreakingIce, Jump, Land, InteractSnow, CannonShot, CannonImpact, SeagullAttack, DeathExplosion };
+
 	string backgroundMusicPath = "event:/Music";
-	string backgroundMusicDangerParameter = "Danger";
+	static string backgroundMusicDangerParameter = "Danger";
 	public enum MusicDangerLevels { Safe = 0, SlightDanger = 1, Danger = 2 };
-	EventInstance backgroundMusicInstance;
+	static EventInstance backgroundMusicInstance;
 
 	string ambiencePath = "event:/Ambience";
-	EventInstance ambienceInstance;
+	static EventInstance ambienceInstance;
 
 	string geyserPath = "event:/SFX/Geyser";
-	EventInstance geyserInstance;
+	static EventInstance geyserInstance;
 
 	string breakingIcePath = "event:/SFX/Breaking_Ice";
-	EventInstance breakingIceInstance;
+	static EventInstance breakingIceInstance;
 
-	//string jumpPath = "event:/SFX/Character/Jump";
-	//EventInstance jumpInstance;
+	string jumpPath = "event:/SFX/Character/Jump";
+	static EventInstance jumpInstance;
 
-	//string landPath = "event:/SFX/Character/Land";
-	//EventInstance landInstance;
+	string landPath = "event:/SFX/Character/Land";
+	static EventInstance landInstance;
+
+	string interactPath = "event:/SFX/Character/Interact";
+	static EventInstance interactSnowInstance;
+
+	string cannonShotPath = "event:/SFX/Cannon/Cannon";
+	static EventInstance cannonShotInstance;
+
+	string cannonImpactPath = "event:/SFX/Cannon/Cannon_Impact";
+	static EventInstance cannonImpactInstance;
+
+	string gullScreamPath = "event:/SFX/Seagull_Scream";
+	static EventInstance seagullAttackInstance;
+
+	string deathExplosionPath = "event:/SFX/Explosion";
+	static EventInstance deathExplosionInstance;
 
 	void Awake ()
 	{
@@ -37,22 +53,45 @@ public class AudioManager : MonoBehaviour
 		//jumpInstance = RuntimeManager.CreateInstance(jumpPath);
 		//landInstance = RuntimeManager.CreateInstance(landPath);
 
-		StartCoroutine(Test());
-	}
-
-	IEnumerator Test ()
-	{
-		//yield return new WaitForSeconds(2);
-		//music.Play();
-		//backgroundMusicInstance.start();
-		Debug.Log("starting");
-		yield return null;
+		backgroundMusicInstance.start();
+		ambienceInstance.start();
 	}
 
 	public static void SetDanger (MusicDangerLevels level)
 	{
-		//backgroundMusicInstance.setParameterByName(backgroundMusicDangerParameter, (int) level);
+		backgroundMusicInstance.setParameterByName(backgroundMusicDangerParameter, (int) level);
 	}
 
-
+	public static void PlayAudioClip (AudioClips whichClip)
+	{
+		switch (whichClip) {
+			case AudioClips.BreakingIce:
+				breakingIceInstance.start();
+				break;
+			case AudioClips.CannonImpact:
+				cannonImpactInstance.start();
+				break;
+			case AudioClips.CannonShot:
+				cannonShotInstance.start();
+				break;
+			case AudioClips.DeathExplosion:
+				deathExplosionInstance.start();
+				break;
+			case AudioClips.Geyser:
+				geyserInstance.start();
+				break;
+			case AudioClips.InteractSnow:
+				interactSnowInstance.start();
+				break;
+			case AudioClips.Jump:
+				jumpInstance.start();
+				break;
+			case AudioClips.Land:
+				landInstance.start();
+				break;
+			case AudioClips.SeagullAttack:
+				seagullAttackInstance.start();
+				break;
+		}
+	}
 }
