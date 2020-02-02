@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -20,6 +20,7 @@ public class Cannon : MonoBehaviour, ISnowDeposit
         CannonBallObject.SetActive(true);
         CannonBall cannonBall = CannonBallObject.GetComponent<CannonBall>();
         cannonBall.Shoot();
+		AudioManager.PlayAudioClip(AudioManager.AudioClips.CannonShot);
         return true;
     }
 
