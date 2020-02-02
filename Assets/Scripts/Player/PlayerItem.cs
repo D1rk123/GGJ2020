@@ -48,6 +48,8 @@ public class PlayerItem : MonoBehaviour
                     m_hasSnow = !snowDeposit.DepositSnow();
                 }
             }
+
+			AudioManager.PlayAudioClip(AudioManager.AudioClips.InteractSnow);
         }
 
     }
