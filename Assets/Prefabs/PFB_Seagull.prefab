@@ -116,7 +116,7 @@ MonoBehaviour:
   _incomingSpeed: 2.5
   _secondsPerPeck: 1.2
   _peckSpeed: 38
-  _hitBoxHalfExtends: {x: 1, y: 1, z: 100}
+  _hitBoxHalfExtends: {x: 0.3, y: 0.3, z: 100}
   _dyingDuration: 3
 --- !u!114 &1197085834690541675
 MonoBehaviour:

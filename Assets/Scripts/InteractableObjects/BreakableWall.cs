@@ -6,6 +6,7 @@ public class BreakableWall : MonoBehaviour, ISnowDeposit, IBreakable
 {
 	public GameObject fullWall;
 	public GameObject brokenWall;
+	public ParticleSystem breakParticles;
 
 	bool _isBroken = false;
 
@@ -26,6 +27,8 @@ public class BreakableWall : MonoBehaviour, ISnowDeposit, IBreakable
 			_isBroken = true;
 			fullWall.SetActive(false);
 			brokenWall.SetActive(true);
+			breakParticles.Stop();
+			breakParticles.Play();
 		}
 	}
 
