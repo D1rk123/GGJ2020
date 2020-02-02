@@ -23,8 +23,23 @@ public class BreakableWall : MonoBehaviour, ISnowDeposit, IBreakable
 	public void Break ()
 	{
 		if (!_isBroken) {
+			_isBroken = true;
 			fullWall.SetActive(false);
 			brokenWall.SetActive(true);
 		}
+	}
+
+	public void Repair ()
+	{
+		if (_isBroken) {
+			_isBroken = false;
+			fullWall.SetActive(true);
+			brokenWall.SetActive(false);
+		}
+	}
+
+	public bool GetIsBroken ()
+	{
+		return _isBroken;
 	}
 }

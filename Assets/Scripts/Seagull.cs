@@ -25,7 +25,7 @@ public class Seagull : MonoBehaviour
 	[Header("Fighting Settings")]
 	[SerializeField] float _secondsPerPeck = 1.2f;
 	[SerializeField] float _peckSpeed = 38;
-	[SerializeField] Vector3 _hitBoxHalfExtends = new Vector3(2,2,100);
+	[SerializeField] Vector3 _hitBoxHalfExtends = new Vector3(2, 2, 100);
 
 	GameObject[] _breakableObjects;
 	GameObject[] _playerCharacters;
@@ -49,8 +49,7 @@ public class Seagull : MonoBehaviour
 		_headBaseLocalPosition = headTransform.localPosition;
 		_fightingPosition = fightingPosition;
 		Vector3 localScale = transform.localScale;
-		if(isLookingLeft)
-		{
+		if (isLookingLeft) {
 			localScale.x = -localScale.x;
 		}
 		transform.localScale = localScale;
@@ -87,7 +86,7 @@ public class Seagull : MonoBehaviour
 		_xPosition = Mathf.MoveTowards(_xPosition, _fightingPosition.x, _incomingSpeed * Time.deltaTime);
 		_yPosition = _fightingPosition.y;
 		_zPosition = _fightingPosition.z;
-		
+
 		if (Mathf.Abs(_xPosition - _fightingPosition.x) < 0.05f) {
 			_state = States.Fighting;
 		}
@@ -110,14 +109,29 @@ public class Seagull : MonoBehaviour
 	IEnumerator PerformPeck ()
 	{
 		//Find random target
-		GameObject target;
-		int maxRoll = _breakableObjects.Length + _playerCharacters.Length;
-		int roll = UnityEngine.Random.Range(0, maxRoll);
-		if (roll < _breakableObjects.Length) {
-			target = _breakableObjects[roll];
-		} else {
-			target = _playerCharacters[roll - _breakableObjects.Length];
+		List<GameObject> possibleTargets = new List<GameObject>();
+		foreach (GameObject go in _breakableObjects) {
+			IBreakable breakable = go.GetComponent<IBreakable>();
+			if (breakable != null) {
+				if (!breakable.GetIsBroken()) {
+					possibleTargets.Add(go);
+				}
+			}
 		}
+		foreach (GameObject go in _playerCharacters) {
+			IBreakable breakable = go.GetComponent<IBreakable>();
+			if (breakable != null) {
+				if (!breakable.GetIsBroken()) {
+					possibleTargets.Add(go);
+				}
+			}
+		}
+
+		if (possibleTargets.Count <= 0) {
+			yield break;
+		}
+
+		GameObject target = possibleTargets[UnityEngine.Random.Range(0, possibleTargets.Count)];
 
 		Vector3 oldBeakPosition;
 		Vector3 newBeakPosition;
@@ -131,7 +145,7 @@ public class Seagull : MonoBehaviour
 			if (Vector3.Distance(beakTip.position, target.transform.position) < 0.05f) {
 				break;
 			}
-			
+
 			yield return null;
 		}
 
@@ -152,7 +166,7 @@ public class Seagull : MonoBehaviour
 			if (Vector3.Distance(headTransform.localPosition, _headBaseLocalPosition) < 0.0005f) {
 				break;
 			}
-			
+
 			yield return null;
 		}
 
