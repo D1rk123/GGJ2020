@@ -154,10 +154,11 @@ public class Seagull : MonoBehaviour
 		Collider[] hitColliders = Physics.OverlapBox(beakTip.position, _hitBoxHalfExtends);
 		foreach (Collider col in hitColliders) {
 			IBreakable breakable = col.GetComponent<IBreakable>();
-			breakable?.Break();
-			if (breakable != null)
+			if (breakable != null) {
+				breakable?.Break();
+				AudioManager.PlayAudioClip(AudioManager.AudioClips.BreakingIce);
 				Debug.Log(col.name);
-			AudioManager.PlayAudioClip(AudioManager.AudioClips.BreakingIce);
+			}
 		}
 
 		//Moving beak back

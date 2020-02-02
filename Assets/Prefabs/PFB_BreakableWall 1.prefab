@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7192790714749238479}
   - component: {fileID: 4235693083847301630}
+  - component: {fileID: 516501485037101109}
   m_Layer: 0
   m_Name: PFB_BreakableWall 1
   m_TagString: Interactable
@@ -26,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 7192790714749238478}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.90393, y: 1, z: 1}
   m_Children:
   - {fileID: 2786419498899606157}
   - {fileID: 2786419498006950039}
@@ -49,6 +50,19 @@ MonoBehaviour:
   fixedWall: {fileID: 1220475625797908638}
   brokenWall: {fileID: 1220475627236999812}
   breakParticles: {fileID: 7604302599993910128}
+--- !u!65 &516501485037101109
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7192790714749238478}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.2, y: 1.6, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &7192790713591597760
 PrefabInstance:
   m_ObjectHideFlags: 0

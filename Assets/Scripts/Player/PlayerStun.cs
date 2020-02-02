@@ -5,14 +5,9 @@ using UnityEngine;
 public class PlayerStun : MonoBehaviour, IBreakable
 {
 	[SerializeField] float stunDuration = 2;
+	[SerializeField] PlayerMovement _playerMovement;
 
-	PlayerMovement _playerMovement;
 	bool _isBroken = false;
-
-	void Awake ()
-	{
-		_playerMovement = GetComponent<PlayerMovement>();
-	}
 
 	public void Break ()
 	{

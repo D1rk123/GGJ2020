@@ -21,17 +21,21 @@ public class BreakableWall : MonoBehaviour, ISnowDeposit, IBreakable
 
 	public void Break ()
 	{
-		_isBroken = true;
-		fixedWall.SetActive(false);
-		brokenWall.SetActive(true);
-		breakParticles.Play();
+		if (!_isBroken) {
+			_isBroken = true;
+			fixedWall.SetActive(false);
+			brokenWall.SetActive(true);
+			breakParticles.Play();
+		}
 	}
 
 	public void Repair ()
 	{
-		_isBroken = false;
-		fixedWall.SetActive(true);
-		brokenWall.SetActive(false);
+		if (_isBroken) {
+			_isBroken = false;
+			fixedWall.SetActive(true);
+			brokenWall.SetActive(false);
+		}
 	}
 
 	public bool GetIsBroken ()

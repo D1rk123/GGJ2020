@@ -2787,6 +2787,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stunDuration: 2
+  _playerMovement: {fileID: 0}
 --- !u!1001 &674301527
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3088,6 +3089,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stunDuration: 2
+  _playerMovement: {fileID: 0}
 --- !u!1001 &782030009
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3875,6 +3877,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.0155, y: 0.0155, z: 0.0155}
   m_Center: {x: 0, y: -3.3306696e-16, z: 0.0000000013969842}
+--- !u!114 &1021899056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1021899054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6163dbc415a33842b78fe23b0dfd6bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stunDuration: 2
+  _playerMovement: {fileID: 1140716626}
 --- !u!1 &1031149301
 GameObject:
   m_ObjectHideFlags: 0
@@ -4366,6 +4382,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stunDuration: 2
+  _playerMovement: {fileID: 0}
 --- !u!1001 &1156853680
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4485,6 +4502,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.0155, y: 0.0155, z: 0.0155}
   m_Center: {x: 0, y: -3.3306696e-16, z: 0.0000000013969842}
+--- !u!114 &1156853684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1156853682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6163dbc415a33842b78fe23b0dfd6bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stunDuration: 2
+  _playerMovement: {fileID: 651170385}
 --- !u!4 &1170934490 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 678053424255607529, guid: 6eaf39267c432b140b87717b37bec282,
@@ -5188,6 +5219,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.0155, y: 0.0155, z: 0.0155}
   m_Center: {x: 0, y: -3.3306696e-16, z: 0.0000000013969842}
+--- !u!114 &1419502869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1419502867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6163dbc415a33842b78fe23b0dfd6bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stunDuration: 2
+  _playerMovement: {fileID: 774216301}
 --- !u!4 &1435022980 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6867732844943729116, guid: c2b98b44879438e47b71def64503c0e7,
@@ -7025,11 +7070,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 93.346
-      objectReference: {fileID: 0}
-    - target: {fileID: 7192790714749238479, guid: c1904e08954a348449e8e153b2227a1b,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.90393
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1904e08954a348449e8e153b2227a1b, type: 3}
