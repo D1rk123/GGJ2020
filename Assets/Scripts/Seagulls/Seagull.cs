@@ -133,6 +133,7 @@ public class Seagull : MonoBehaviour
 		}
 
 		if (possibleTargets.Count <= 0) {
+			_isPecking = false;
 			yield break;
 		}
 

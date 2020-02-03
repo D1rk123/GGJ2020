@@ -37,7 +37,7 @@ public class PlayerStun : MonoBehaviour, IBreakable
 	public void Repair ()
 	{
 		stunSprite.SetActive(false);
-		_isBroken = true;
+		_isBroken = false;
 		_playerMovement.enabled = true;
 	}
 
