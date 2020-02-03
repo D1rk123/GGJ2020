@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_firstGullDelay: 3
-  m_secondGullDelay: 10
+  m_secondGullDelay: 12
   m_respawnAverage: 4.5
   m_respawnRangeFactor: 3
   m_gullHealth: 5

@@ -13,14 +13,11 @@ public class CannonBall : MonoBehaviour
     private Rigidbody m_rigidbody;
     private float shotTime = -1;
 
-    // Start is called before the first frame update
     void Awake()
     {
         m_rigidbody = GetComponent<Rigidbody>();
-        Debug.Log("Canonball Awake");
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (shotTime == -1)
@@ -33,7 +30,6 @@ public class CannonBall : MonoBehaviour
             transform.position, transform.localScale.y / 2, (1 << 9)
             );
 
-        Debug.Log("transform.position:" + transform.position + ", transform.localScale.y/2:" + transform.localScale.y / 2);
         if (collisions.Length > 0)
         {
             Debug.Log("Cannonball hit");

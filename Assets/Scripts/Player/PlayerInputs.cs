@@ -20,7 +20,7 @@ public class PlayerInputs : MonoBehaviour
 	[SerializeField] PlayerIndex _playerIndex = PlayerIndex.One;
 	[SerializeField] Axis _movementAxis = Axis.LeftStickHorizontal;
 	[SerializeField] Button _jumpButton = Button.A;
-	[SerializeField] Button _interactButton = Button.X;
+	[SerializeField] Button _interactButton = Button.B;
 
 	private void Update ()
 	{

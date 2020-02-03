@@ -6,43 +6,34 @@ using UnityEngine.SceneManagement;
 public class LossManager : MonoBehaviour
 {
 	public GameObject[] breakableWallObjects;
-	public GameObject[] playerObjects;
 	public GameObject ExplosionParticles;
 	public float explodingDuration = 4;
 	public float secondsPerExplosion = .2f;
 
 	IBreakable[] _breakableWalls;
-	IBreakable[] _playerCharacters;
+
+	bool _destroyingMountain = false;
 
 	private void Awake ()
 	{
 		_breakableWalls = new IBreakable[breakableWallObjects.Length];
-		_playerCharacters = new IBreakable[playerObjects.Length];
 
 		for (int i = 0; i < breakableWallObjects.Length; i++) {
 			_breakableWalls[i] = breakableWallObjects[i].GetComponent<IBreakable>();
-		}
-		for (int i = 0; i < playerObjects.Length; i++) {
-			_playerCharacters[i] = playerObjects[i].GetComponent<IBreakable>();
 		}
 	}
 
 	private void Update ()
 	{
-		bool aPlayerLives = false;
-		foreach (IBreakable player in _playerCharacters) {
-			if (!player.GetIsBroken()) {
-				aPlayerLives = true;
-			}
-		}
-		bool aWallIsFixed = false;
+		bool anyWallIsFixed = false;
 		foreach (IBreakable wall in _breakableWalls) {
 			if (!wall.GetIsBroken()) {
-				aWallIsFixed = true;
+				anyWallIsFixed = true;
 			}
 		}
 
-		if (!aPlayerLives || !aWallIsFixed) {
+		if (!anyWallIsFixed && !_destroyingMountain) {
+			_destroyingMountain = true;
 			StartCoroutine(DestroyMountain());
 		}
 	}

@@ -118,7 +118,15 @@ public class PlayerMovement : MonoBehaviour
             Vector3 v = m_rigidbody.velocity;
             v.y = m_jumpSpeed;
             m_rigidbody.velocity = v;
+            AudioManager.PlayAudioClip(AudioManager.AudioClips.Jump);
         }
+    }
+
+    private void OnDisable ()
+    {
+        Vector3 newVelocity = m_rigidbody.velocity;
+        newVelocity.x = 0;
+        m_rigidbody.velocity = newVelocity;
     }
 
     private void OnTriggerEnter(Collider geyser)

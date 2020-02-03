@@ -23,10 +23,10 @@ public class AudioManager : MonoBehaviour
 	string breakingIcePath = "event:/SFX/Breaking_Ice";
 	static EventInstance breakingIceInstance;
 
-	string jumpPath = "event:/SFX/Character/Jump"; //
+	string jumpPath = "event:/SFX/Character/Jump";
 	static EventInstance jumpInstance;
 
-	string landPath = "event:/SFX/Character/Land"; //
+	string landPath = "event:/SFX/Character/Land"; //NOT IMPLEMENTED
 	static EventInstance landInstance;
 
 	string interactSnowPath = "event:/SFX/Character/Interact";
@@ -41,7 +41,7 @@ public class AudioManager : MonoBehaviour
 	string gullScreamPath = "event:/SFX/Seagull_Scream";
 	static EventInstance seagullAttackInstance;
 
-	string deathExplosionPath = "event:/SFX/Explosion"; //
+	string deathExplosionPath = "event:/SFX/Explosion";
 	static EventInstance deathExplosionInstance;
 
 	void Awake ()
@@ -60,6 +60,21 @@ public class AudioManager : MonoBehaviour
 
 		backgroundMusicInstance.start();
 		ambienceInstance.start();
+	}
+
+	private void OnDisable ()
+	{
+		backgroundMusicInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+		ambienceInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+		geyserInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+		breakingIceInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+		jumpInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+		landInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+		interactSnowInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+		cannonShotInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+		cannonImpactInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+		seagullAttackInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+		deathExplosionInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
 	}
 
 	public static void SetDanger (MusicDangerLevels level)

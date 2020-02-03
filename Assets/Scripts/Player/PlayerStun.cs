@@ -4,13 +4,26 @@ using UnityEngine;
 
 public class PlayerStun : MonoBehaviour, IBreakable
 {
+	public GameObject stunSprite;
 	[SerializeField] float stunDuration = 2;
 	[SerializeField] PlayerMovement _playerMovement;
 
 	bool _isBroken = false;
 
+	void Awake ()
+	{
+		if (_isBroken) {
+			_playerMovement.enabled = false;
+			stunSprite.SetActive(true);
+		} else {
+			_playerMovement.enabled = true;
+			stunSprite.SetActive(false);
+		}
+	}
+
 	public void Break ()
 	{
+		stunSprite.SetActive(true);
 		_isBroken = true;
 		_playerMovement.enabled = false;
 		StartCoroutine(RecoverFromStun());
@@ -23,6 +36,7 @@ public class PlayerStun : MonoBehaviour, IBreakable
 
 	public void Repair ()
 	{
+		stunSprite.SetActive(false);
 		_isBroken = true;
 		_playerMovement.enabled = true;
 	}
