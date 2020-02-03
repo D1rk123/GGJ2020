@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicBPM: 146
   beatsPerBob: 4
-  waterBobVerticalAmplitude: 0.5
+  waterBobVerticalAmplitude: 0.6
   waterBobRotationAmplitude: 6
 --- !u!114 &-2387289216509055665
 MonoBehaviour:
@@ -60,10 +60,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7febf3c8ee0776e418eb3e9feb62a201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_firstGullDelay: 10
-  m_secondGullDelay: 120
-  m_respawnAverage: 20
-  m_respawnRangeFactor: 5
-  m_gullHealth: 3
+  m_firstGullDelay: 3
+  m_secondGullDelay: 10
+  m_respawnAverage: 4.5
+  m_respawnRangeFactor: 3
+  m_gullHealth: 5
   m_leftSeagull: {fileID: 0}
   m_rightSeagull: {fileID: 0}
+  leftBreakableObjects:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  rightBreakableObjects:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  playerCharacters:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

@@ -12,11 +12,11 @@ public class GullManager : MonoBehaviour
 
     GullSide m_firstGullSide;
     GullSide m_secondGullSide;
-    public float m_firstGullDelay = 10;
-    public float m_secondGullDelay = 120;
-    public float m_respawnAverage = 20;
-    public float m_respawnRangeFactor = 5;
-    public int m_gullHealth = 3;
+    public float m_firstGullDelay = 3;
+    public float m_secondGullDelay = 10;
+    public float m_respawnAverage = 4.5F;
+    public float m_respawnRangeFactor = 3;
+    public int m_gullHealth = 5;
 
     private bool m_leftGullAlive = false;
     private bool m_rightGullAlive = false;
@@ -49,17 +49,17 @@ public class GullManager : MonoBehaviour
         if(side == GullSide.Left)
         {
             m_leftGullAlive = true;
-            m_leftSeagull.Init(new Vector3(-8.25f, -3.64f, -0.01000094f) + new Vector3(-15, 0, 0), new Vector3(-8.25f, -3.64f, -0.01000094f), false, m_gullHealth, leftBreakableObjects, playerCharacters);
-            m_numberOfGullsAlive++;
+            m_leftSeagull.Init(new Vector3(-8.25f, -3.64f, -0.01000094f) + new Vector3(-10, 0, 0), new Vector3(-8.25f, -3.64f, -0.01000094f), false, m_gullHealth, leftBreakableObjects, playerCharacters);
         }
         else
         {
             m_rightGullAlive = true;
-            m_rightSeagull.Init(new Vector3(8.14f, -3.64f, -0.01000094f) + new Vector3(15, 0, 0), new Vector3(8.14f, -3.64f, -0.01000094f), true, m_gullHealth, rightBreakableObjects, playerCharacters);
-            m_numberOfGullsAlive++;
+            m_rightSeagull.Init(new Vector3(8.14f, -3.64f, -0.01000094f) + new Vector3(10, 0, 0), new Vector3(8.14f, -3.64f, -0.01000094f), true, m_gullHealth, rightBreakableObjects, playerCharacters);
         }
 
-        Debug.Log("Spawned gull on the " + GullSideToString(side) + " side");
+		m_numberOfGullsAlive++;
+
+		Debug.Log("Spawned gull on the " + GullSideToString(side) + " side");
 		OnGullsUpdate();
 	}
 
@@ -69,25 +69,25 @@ public class GullManager : MonoBehaviour
         if (!isLookingLeft)
         {
             m_leftGullAlive = false;
-            side = GullSide.Left;
-			m_numberOfGullsAlive--;
+            side = GullSide.Right;
         }
         else
         {
             m_rightGullAlive = false;
-            side = GullSide.Right;
-			m_numberOfGullsAlive--;
+            side = GullSide.Left;
 		}
 
-        Debug.Log("Gull on the " + GullSideToString(side) + " side was removed");
-        StartCoroutine(SpawnGullDelayed(side, getSpawnDelay()));
+		m_numberOfGullsAlive--;
 		OnGullsUpdate();
+
+		Debug.Log("Gull on the " + GullSideToString(side) + " side was removed");
+        StartCoroutine(SpawnGullDelayed(side, getSpawnDelay()));
 	}
 
     // Start is called before the first frame update
     void Start()
     {
-        m_firstGullSide = (Random.Range(0, 1) > 0.5) ? GullSide.Left : GullSide.Right;
+        m_firstGullSide = (Random.Range(0, 2) > 0.5) ? GullSide.Left : GullSide.Right;
         m_secondGullSide = (m_firstGullSide == GullSide.Right) ? GullSide.Left : GullSide.Right;
 
         StartCoroutine(SpawnGullDelayed(m_firstGullSide, m_firstGullDelay));

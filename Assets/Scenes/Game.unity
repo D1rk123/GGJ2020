@@ -3462,21 +3462,6 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -2387289216509055665, guid: b71eae8f0555ab14ea37649f6fe45a01,
         type: 3}
-      propertyPath: playerCharacters.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: -2387289216509055665, guid: b71eae8f0555ab14ea37649f6fe45a01,
-        type: 3}
-      propertyPath: leftBreakableObjects.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: -2387289216509055665, guid: b71eae8f0555ab14ea37649f6fe45a01,
-        type: 3}
-      propertyPath: rightBreakableObjects.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: -2387289216509055665, guid: b71eae8f0555ab14ea37649f6fe45a01,
-        type: 3}
       propertyPath: m_leftSeagull
       value: 
       objectReference: {fileID: 268983553}
@@ -3487,39 +3472,9 @@ PrefabInstance:
       objectReference: {fileID: 1448610451}
     - target: {fileID: -2387289216509055665, guid: b71eae8f0555ab14ea37649f6fe45a01,
         type: 3}
-      propertyPath: m_firstGullDelay
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -2387289216509055665, guid: b71eae8f0555ab14ea37649f6fe45a01,
-        type: 3}
-      propertyPath: m_secondGullDelay
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: -2387289216509055665, guid: b71eae8f0555ab14ea37649f6fe45a01,
-        type: 3}
-      propertyPath: playerCharacters.Array.data[0]
-      value: 
-      objectReference: {fileID: 1140716623}
-    - target: {fileID: -2387289216509055665, guid: b71eae8f0555ab14ea37649f6fe45a01,
-        type: 3}
-      propertyPath: playerCharacters.Array.data[1]
-      value: 
-      objectReference: {fileID: 651170383}
-    - target: {fileID: -2387289216509055665, guid: b71eae8f0555ab14ea37649f6fe45a01,
-        type: 3}
-      propertyPath: playerCharacters.Array.data[2]
-      value: 
-      objectReference: {fileID: 774216299}
-    - target: {fileID: -2387289216509055665, guid: b71eae8f0555ab14ea37649f6fe45a01,
-        type: 3}
       propertyPath: leftBreakableObjects.Array.data[0]
       value: 
       objectReference: {fileID: 585768628}
-    - target: {fileID: -2387289216509055665, guid: b71eae8f0555ab14ea37649f6fe45a01,
-        type: 3}
-      propertyPath: m_respawnAverage
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: -2387289216509055665, guid: b71eae8f0555ab14ea37649f6fe45a01,
         type: 3}
       propertyPath: leftBreakableObjects.Array.data[1]
@@ -3540,11 +3495,6 @@ PrefabInstance:
       propertyPath: leftBreakableObjects.Array.data[4]
       value: 
       objectReference: {fileID: 1078572880}
-    - target: {fileID: -2387289216509055665, guid: b71eae8f0555ab14ea37649f6fe45a01,
-        type: 3}
-      propertyPath: leftBreakableObjects.Array.data[5]
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: -2387289216509055665, guid: b71eae8f0555ab14ea37649f6fe45a01,
         type: 3}
       propertyPath: rightBreakableObjects.Array.data[0]
@@ -3570,6 +3520,21 @@ PrefabInstance:
       propertyPath: rightBreakableObjects.Array.data[4]
       value: 
       objectReference: {fileID: 1605368596}
+    - target: {fileID: -2387289216509055665, guid: b71eae8f0555ab14ea37649f6fe45a01,
+        type: 3}
+      propertyPath: playerCharacters.Array.data[0]
+      value: 
+      objectReference: {fileID: 1140716623}
+    - target: {fileID: -2387289216509055665, guid: b71eae8f0555ab14ea37649f6fe45a01,
+        type: 3}
+      propertyPath: playerCharacters.Array.data[1]
+      value: 
+      objectReference: {fileID: 651170383}
+    - target: {fileID: -2387289216509055665, guid: b71eae8f0555ab14ea37649f6fe45a01,
+        type: 3}
+      propertyPath: playerCharacters.Array.data[2]
+      value: 
+      objectReference: {fileID: 774216299}
     - target: {fileID: 5798736352868899300, guid: b71eae8f0555ab14ea37649f6fe45a01,
         type: 3}
       propertyPath: m_Name
@@ -4362,7 +4327,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b04f997b27ca78d4b8765fc755173f4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _allowKeyboardInputs: 0
+  _allowKeyboardInputs: 1
   _moveLeftKey: 97
   _moveRightKey: 100
   _jumpKey: 119

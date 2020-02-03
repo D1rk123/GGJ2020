@@ -40,7 +40,7 @@ public class Seagull : MonoBehaviour
 
 	private void Awake ()
 	{
-		//Init(new Vector3(-40, -10, 0), new Vector3(-24, -10, 0), false);
+		
 	}
 
 	public void Init (Vector3 spawnPosition, Vector3 fightingPosition, bool isLookingLeft, int startingHealth, GameObject[] breakableObjects, GameObject[] playerCharacters)
