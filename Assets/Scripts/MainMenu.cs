@@ -8,7 +8,7 @@ public class MainMenu : MonoBehaviour
     void Update()
     {
 		for (int i = 0; i < 3; i++) {
-			if (XInputEX.GetAnyInputDown(i)) {
+			if (XInputEX.GetAnyInputDown(i) || Input.anyKeyDown) {
 				UnityEngine.SceneManagement.SceneManager.LoadScene(1);
 			}
 		}       
