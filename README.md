@@ -1,10 +1,12 @@
 ![Smeeuw banner](https://raw.githubusercontent.com/D1rk123/GGJ2020/master/Images/poster.png)
 
 # Smeeuw
+Smeeuw is a 3-player local multiplayer game where you must co-ordinate to defend and repair your home from the fiery malicious beaks of the Smeeuws. Gather snow, repair your walls and fire back to fend off the red winged demons for as long as possible!
 
-Smeeuw is a fast paced 3-player local multiplayer game made during the Global Game Jam 2020. The players are snowmen living in an ice rock that is attacked by angry seagulls. They have to use snow to repair all damage to their home and fight off the seagulls. It is build on Unity 2019.2.19f1 with all code written in C#.
+## Technology
+The game is build on Unity 2019.2.19f1 with all code written in C#.
 
-## The team
+## Team
 * Kevin van As - Design/Development
 * Tim van den Boomen - Art/Design
 * Manou van der Meer - Art
