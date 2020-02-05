@@ -2889,7 +2889,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 37979f9e93cd79a4582e30e9bba9dd09, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.8301887, g: 0.4738341, b: 0.54706365, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -4615,6 +4615,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PostProcessing
+      objectReference: {fileID: 0}
+    - target: {fileID: 8386643607485805737, guid: 5a46ba9865e19e24495e56964652d703,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a46ba9865e19e24495e56964652d703, type: 3}
