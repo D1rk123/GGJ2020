@@ -13,9 +13,8 @@ The game is build on Unity 2019.2.19f1 with all code written in C#.
 * Thomas van Rossum - Audio
 * Dirk Schut - Development
 
-## Global Game Jam Link
-[Global game jam](https://globalgamejam.org/2020/games/smeeuw-7)
-(Via this link you can also find an executable version of the game)
+## Global Game Jam & Executable
+This game was developed in one weekend as part of the Global Game Jam 2020 (with a few tweaks afterwards). You can find an executable version of the game and some extra info on [our Global Game Jam page](https://globalgamejam.org/2020/games/smeeuw-7).
 
 ## Game Screenshot
 ![Screenshot](https://raw.githubusercontent.com/D1rk123/GGJ2020/master/Images/screenshot720p.png)
