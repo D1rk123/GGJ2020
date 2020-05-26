@@ -7,7 +7,7 @@ using System.Threading;
 
 public class AudioManager : MonoBehaviour
 {
-	public enum AudioClips { Geyser, BreakingIce, Jump, Land, InteractSnow, CannonShot, CannonImpact, SeagullAttack, DeathExplosion };
+	public enum AudioClips { Geyser, BreakingIce, Jump, PlayerHit, InteractSnow, CannonShot, CannonImpact, SeagullAttack, DeathExplosion };
 
 	string backgroundMusicPath = "event:/Music";
 	static string backgroundMusicDangerParameter = "Danger";
@@ -26,8 +26,8 @@ public class AudioManager : MonoBehaviour
 	string jumpPath = "event:/SFX/Character/Jump";
 	static EventInstance jumpInstance;
 
-	string landPath = "event:/SFX/Character/Land"; //NOT IMPLEMENTED
-	static EventInstance landInstance;
+	string playerHitPath = "event:/SFX/Character/Land";
+	static EventInstance playerHitInstance;
 
 	string interactSnowPath = "event:/SFX/Character/Interact";
 	static EventInstance interactSnowInstance;
@@ -51,7 +51,7 @@ public class AudioManager : MonoBehaviour
 		geyserInstance = RuntimeManager.CreateInstance(geyserPath);
 		breakingIceInstance = RuntimeManager.CreateInstance(breakingIcePath);
 		jumpInstance = RuntimeManager.CreateInstance(jumpPath);
-		landInstance = RuntimeManager.CreateInstance(landPath);
+		playerHitInstance = RuntimeManager.CreateInstance(playerHitPath);
 		interactSnowInstance = RuntimeManager.CreateInstance(interactSnowPath);
 		cannonShotInstance = RuntimeManager.CreateInstance(cannonShotPath);
 		cannonImpactInstance = RuntimeManager.CreateInstance(cannonImpactPath);
@@ -69,7 +69,7 @@ public class AudioManager : MonoBehaviour
 		geyserInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
 		breakingIceInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
 		jumpInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
-		landInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+		playerHitInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
 		interactSnowInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
 		cannonShotInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
 		cannonImpactInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
@@ -106,8 +106,8 @@ public class AudioManager : MonoBehaviour
 			case AudioClips.Jump:
 				jumpInstance.start();
 				break;
-			case AudioClips.Land:
-				landInstance.start();
+			case AudioClips.PlayerHit:
+				playerHitInstance.start();
 				break;
 			case AudioClips.SeagullAttack:
 				seagullAttackInstance.start();

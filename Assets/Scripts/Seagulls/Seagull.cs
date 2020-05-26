@@ -168,13 +168,12 @@ public class Seagull : MonoBehaviour
 				} else {
 					hasHitPlayer = true;
 				}
-				Debug.Log(col.name);
 			}
 			if (hasHitIce) {
 				AudioManager.PlayAudioClip(AudioManager.AudioClips.BreakingIce);
 			}
 			if (hasHitPlayer) {
-				AudioManager.PlayAudioClip(AudioManager.AudioClips.Land);
+				AudioManager.PlayAudioClip(AudioManager.AudioClips.PlayerHit);
 			}
 		}
 
@@ -194,7 +193,8 @@ public class Seagull : MonoBehaviour
 
 	private IEnumerator Dying ()
 	{
-		Debug.Log("Started dying");
+		ScoreManager.IncrementScore();
+
 		StopCoroutine(PerformPeck());
 		Vector3 dyingStartPosition = transform.position;
 		headTransform.localPosition = _headBaseLocalPosition;
